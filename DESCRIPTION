@@ -14,3 +14,4 @@ Suggests:
 Config/testthat/edition: 3
 URL: https://github.com/Infectious-Disease-Modeling-Hubs/hubExamples
 BugReports: https://github.com/Infectious-Disease-Modeling-Hubs/hubExamples/issues
+Config/Needs/website: Infectious-Disease-Modeling-Hubs/hubStyle
