@@ -12,7 +12,9 @@ NULL
 #'
 #' `forecast_outputs` contains example forecast data that represents model outputs from a forecast hub
 #' with predictions for three influenza-related targets (wk inc flu hosp, wk flu hops rate category,
-#' and wk flu hosp rate) for two reference dates in 2022.
+#' and wk flu hosp rate) for two reference dates in 2022. This dataset reflect forecast outputs as they look
+#' when retrieved from a hub via the `hubData` package (which is slightly different than they look
+#' when originally submitted by modelers).
 #'
 #' @format ## `forecast_outputs`
 #' A data frame with 5,424 rows and 9 columns:
