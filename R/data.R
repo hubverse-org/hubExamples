@@ -74,3 +74,56 @@ NULL
 #' }
 #' @rdname forecast_data
 "forecast_target_values"
+
+#' Scenario outputs
+#'
+#' `scenario_outputs` contains example scenario projection data that represents
+#' model outputs and an ensemble from a scenario hub with predictions for one
+#' target (`inc hosp`) in one location (`"US"`), one round ("2021-03-07") and
+#' four scenario. This dataset reflect scenario projection outputs as they look
+#' when retrieved from a hub via the `hubData` package (which is slightly
+#' different than they look when originally submitted by modelers), and with
+#' a "mean" ensemble calculated with the `hubEnsemble` package
+#' `simple_ensemble()` function with default parameters.
+#' The date of occurrence of the outcome of interest in yyyy-mm-dd format
+#' can be calculated directly from the `origin_date` and `horizon` as follows:
+#' `target_end_date = origin_date + (7 * horizon) - 1`
+#'
+#' @format ## `scenario_outputs`
+#' A data frame with 7,176 rows and 9 columns:
+#' \describe{
+#'   \item{model_id}{the name of the model}
+#'   \item{origin_date}{the starting point of the projection in yyyy-mm-dd
+#'        format}
+#'   \item{scenario_id}{a unique identifier for the scenario}
+#'   \item{location}{FIPS code identifying a location}
+#'   \item{target}{a unique identifier for the target}
+#'   \item{horizon}{number of time units ahead being projected relative to the
+#'        `origin_date`, in units of weeks}
+#'   \item{output_type}{the type of representation of the prediction}
+#'   \item{output_type_id}{more identifying information specific to the
+#'        output type; output_type_id` is not relevant for every kind of
+#'        `output_type` (for example, hubs will not expect `output_type_id`
+#'        values when the `output_type` is mean or median}
+#'   \item{value}{the model’s prediction}
+#'
+#' }
+#' @rdname scenario_data
+"scenario_outputs"
+
+#' Scenario target time series
+#'
+#' `scenario_target_ts` contains time series target data associated with the
+#' scenario projection data.
+#'
+#' @format ## `scenario_target_ts`
+#' A data frame with 10,255 rows and 3 columns:
+#' \describe{
+#'   \item{date}{the date of the target observation in yyyy-mm-dd format}
+#'   \item{location}{FIPS code identifying a location}
+#'   \item{value}{a count of incident cases in the given `location`
+#'        in the week ending on the given `date`.}
+#'   \item{target}{a unique identifier for the target}
+#' }
+#' @rdname scenario_data
+"scenario_target_ts"
