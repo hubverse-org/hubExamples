@@ -75,7 +75,9 @@ target data for an example forecast hub: \code{forecast_outputs}, \code{forecast
 
 \code{forecast_outputs} contains example forecast data that represents model outputs from a forecast hub
 with predictions for three influenza-related targets (wk inc flu hosp, wk flu hops rate category,
-and wk flu hosp rate) for two reference dates in 2022.
+and wk flu hosp rate) for two reference dates in 2022. This dataset reflect forecast outputs as they look
+when retrieved from a hub via the \code{hubData} package (which is slightly different than they look
+when originally submitted by modelers).
 
 \code{forecast_target_ts} contains time series target data from a hub that predicts influenza-related targets.
 
