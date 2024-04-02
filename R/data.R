@@ -75,12 +75,21 @@ NULL
 #' @rdname forecast_data
 "forecast_target_values"
 
+#' Example scenario hub data
+#'
+#' The hubExamples package provides two data sets that contain example model output and
+#' target data for an example scenario hub: `scenario_outputs` and `scenario_target_ts`.
+#'
+#' @name scenario_data
+#' @source <https://github.com/Infectious-Disease-Modeling-Hubs/example-complex-scenario-hub/>
+NULL
+
 #' Scenario outputs
 #'
 #' `scenario_outputs` contains example scenario projection data that represents
 #' model outputs and an ensemble from a scenario hub with predictions for one
 #' target (`inc hosp`) in one location (`"US"`), one round ("2021-03-07") and
-#' four scenario. This dataset reflect scenario projection outputs as they look
+#' four scenarios. This dataset reflects scenario projection outputs as they look
 #' when retrieved from a hub via the `hubData` package (which is slightly
 #' different than they look when originally submitted by modelers), and with
 #' a "mean" ensemble calculated with the `hubEnsemble` package
@@ -100,11 +109,11 @@ NULL
 #'   \item{target}{a unique identifier for the target}
 #'   \item{horizon}{number of time units ahead being projected relative to the
 #'        `origin_date`, in units of weeks}
-#'   \item{output_type}{the type of representation of the prediction}
+#'   \item{output_type}{the type of representation of the prediction; in this
+#'        example, all values for the `output_type` are "quantile".}
 #'   \item{output_type_id}{more identifying information specific to the
-#'        output type; output_type_id` is not relevant for every kind of
-#'        `output_type` (for example, hubs will not expect `output_type_id`
-#'        values when the `output_type` is mean or median}
+#'        output type; here, the `output_type_id` specifies the probability
+#'        level for the quantile prediction}
 #'   \item{value}{the model’s prediction}
 #'
 #' }
@@ -117,10 +126,10 @@ NULL
 #' scenario projection data.
 #'
 #' @format ## `scenario_target_ts`
-#' A data frame with 10,255 rows and 3 columns:
+#' A data frame with 127 rows and 3 columns:
 #' \describe{
-#'   \item{date}{the date of the target observation in yyyy-mm-dd format}
 #'   \item{location}{FIPS code identifying a location}
+#'   \item{date}{the date of the target observation in yyyy-mm-dd format}
 #'   \item{value}{a count of incident cases in the given `location`
 #'        in the week ending on the given `date`.}
 #'   \item{target}{a unique identifier for the target}
