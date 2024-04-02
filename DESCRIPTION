@@ -1,10 +1,22 @@
 Package: hubExamples
-Title: What the Package Does (One Line, Title Case)
-Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Title: Example Hub Data
+Version: 0.0.0.9001
+Authors@R: c(
+    person(given = "Evan L",
+           family = "Ray",
+           email = "elray@umass.edu",
+           role = c("aut", "cre")),
+    person(given = "Becky",
+           family = "Sweger",
+           email = "bsweger@umass.edu",
+           role = c("aut")),
+    person(given = "Lucie",
+           family = "Contamin",
+           email = "contamin@pitt.edu",
+           role = c("aut"),
+           comment = c(ORCID = "0000-0001-5797-1279")))
+Description: This package provides example data for forecasting and scenario
+    modeling hubs in the hubverse format.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
