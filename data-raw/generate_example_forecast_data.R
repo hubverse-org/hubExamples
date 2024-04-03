@@ -26,10 +26,10 @@ target_ts_data_path <- file.path(hub_path, "target-data", "time-series.csv")
 forecast_target_ts <- read_csv(target_ts_data_path) |>
   as.data.frame()
 
-target_values_data_path <- file.path(hub_path, "target-data", "target-values.csv")
-forecast_target_values <- read_csv(target_values_data_path) |>
+target_observations_data_path <- file.path(hub_path, "target-data", "target-observations.csv")
+forecast_target_observations <- read_csv(target_observations_data_path) |>
   as.data.frame()
 
 usethis::use_data(forecast_outputs, overwrite = TRUE)
 usethis::use_data(forecast_target_ts, overwrite = TRUE)
-usethis::use_data(forecast_target_values, overwrite = TRUE)
+usethis::use_data(forecast_target_observations, overwrite = TRUE)
