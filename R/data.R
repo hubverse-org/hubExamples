@@ -2,7 +2,7 @@
 #'
 #' The hubExamples package provides three data sets that contain example model output and
 #' target data for an example forecast hub: `forecast_outputs`, `forecast_target_ts`, and
-#' 'forecast_target_values'.
+#' 'forecast_target_observations'.
 #'
 #' @name forecast_data
 #' @source <https://github.com/Infectious-Disease-Modeling-Hubs/example-complex-forecast-hub/>
@@ -46,18 +46,18 @@ NULL
 #' \describe{
 #'   \item{date}{the date of the target observation in yyyy-mm-dd format}
 #'   \item{location}{FIPS code identifying a location}
-#'   \item{value}{a count of hospital admissions in the given `location`
+#'   \item{observation}{a count of hospital admissions in the given `location`
 #'        in the week ending on the given `date`.}
 #' }
 #' @rdname forecast_data
 "forecast_target_ts"
 
-#' Forecast target values
+#' Forecast target observations
 #'
-#' `forecast_target_values` contains target data that represents the source of "truth" that model output data
+#' `forecast_target_observations` contains target data that represents the source of "truth" that model output data
 #' will be scored against. This example represents influenza-related targets.
 #'
-#' @format ## `forecast_target_values`
+#' @format ## `forecast_target_observations`
 #' A data frame with 198,485 rows and 6 columns:
 #' \describe{
 #'   \item{location}{FIPS code identifying a location}
@@ -70,10 +70,10 @@ NULL
 #'         as in the model output data, `output_type_id` is not relevant for `output_type`
 #'         of mean and median; target data that represents quantile `output_type` will
 #'         not have an `output_type_id`.}
-#'   \item{value}{the observed value of the target}
+#'   \item{observation}{the observed value of the target}
 #' }
 #' @rdname forecast_data
-"forecast_target_values"
+"forecast_target_observations"
 
 #' Example scenario hub data
 #'
