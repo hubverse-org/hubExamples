@@ -71,7 +71,7 @@ forecast_target_observations
 \description{
 The hubExamples package provides three data sets that contain example model output and
 target data for an example forecast hub: \code{forecast_outputs}, \code{forecast_target_ts}, and
-'forecast_target_observations'.
+\code{forecast_target_observations}.
 
 \code{forecast_outputs} contains example forecast data that represents model outputs from a forecast hub
 with predictions for three influenza-related targets (wk inc flu hosp, wk flu hops rate category,

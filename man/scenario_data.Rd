@@ -35,7 +35,7 @@ A data frame with 127 rows and 3 columns:
 \describe{
 \item{location}{FIPS code identifying a location}
 \item{date}{the date of the target observation in yyyy-mm-dd format}
-\item{value}{a count of incident cases in the given \code{location}
+\item{observation}{a count of incident cases in the given \code{location}
 in the week ending on the given \code{date}.}
 \item{target}{a unique identifier for the target}
 }

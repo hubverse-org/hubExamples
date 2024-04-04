@@ -2,7 +2,7 @@
 #'
 #' The hubExamples package provides three data sets that contain example model output and
 #' target data for an example forecast hub: `forecast_outputs`, `forecast_target_ts`, and
-#' 'forecast_target_observations'.
+#' `forecast_target_observations`.
 #'
 #' @name forecast_data
 #' @source <https://github.com/Infectious-Disease-Modeling-Hubs/example-complex-forecast-hub/>
@@ -130,7 +130,7 @@ NULL
 #' \describe{
 #'   \item{location}{FIPS code identifying a location}
 #'   \item{date}{the date of the target observation in yyyy-mm-dd format}
-#'   \item{value}{a count of incident cases in the given `location`
+#'   \item{observation}{a count of incident cases in the given `location`
 #'        in the week ending on the given `date`.}
 #'   \item{target}{a unique identifier for the target}
 #' }
