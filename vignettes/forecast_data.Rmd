@@ -150,9 +150,7 @@ target_observations_to_plot <- forecast_target_observations |>
     target_end_date %in% forecasts_to_plot$target_end_date
   ) |>
   mutate(output_type_id = as.numeric(output_type_id))
-target_observations_to_plot |>
-  select(-reference_date, -horizon) |>
-  head()
+head(target_observations_to_plot)
 
 # We illustrate that the cdf values recorded in forecast_target_observations
 # correspond to a point mass at the observed hospitalization rate.
