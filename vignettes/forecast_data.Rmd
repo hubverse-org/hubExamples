@@ -30,7 +30,7 @@ The `hubExamples` package provides three data sets that contain example model ou
 target data for an example forecast hub: `forecast_outputs`, `forecast_target_ts`, and
 `forecast_target_observations`. These forecasts and target data are a subset of the model outputs and target data that are provided in the [example-complex-forecast-hub](https://github.com/Infectious-Disease-Modeling-Hubs/example-complex-forecast-hub). These data were in turn derived from forecast submissions and target data for the [FluSight Forecast Hub](https://github.com/cdcepi/Flusight-forecast-data) for the 2022/23 season.
 
-We will begin with a high level overview of these data objects, and then we will describe the different forecast targets in more detail in \@ref(further-detail-on-the-forecast-targets).
+We begin with a high level overview of these data objects and then we describe the different forecast targets in more detail.
 
 ## Example forecast output data
 
