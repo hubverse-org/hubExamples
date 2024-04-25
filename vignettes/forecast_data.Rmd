@@ -174,7 +174,7 @@ ggplot() +
     "CDF",
     values = c(1, 2)
   ) +
-  facet_wrap(vars(target_end_date)) + 
+  facet_wrap(vars(target_end_date)) +
   xlab("output_type_id (units are hospital admissions per 100,000 population)") +
   ylab("CDF value (units are probability)")
 ```
