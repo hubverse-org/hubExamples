@@ -159,7 +159,8 @@ ggplot() +
   geom_line(
     mapping = aes(x = output_type_id, y = value,
                   color = "forecast", linetype = "forecast"),
-    data = forecasts_to_plot) +
+    data = forecasts_to_plot
+  ) +
   geom_line(
     mapping = aes(x = output_type_id, y = observation,
                   color = "observation", linetype = "observation"),
@@ -167,10 +168,12 @@ ggplot() +
   ) +
   scale_color_manual(
     "CDF",
-    values = c("black", "orange")) +
+    values = c("black", "orange")
+  ) +
   scale_linetype_manual(
     "CDF",
-    values = c(1, 2)) +
+    values = c(1, 2)
+  ) +
   facet_wrap(vars(target_end_date)) + 
   xlab("output_type_id (units are hospital admissions per 100,000 population)") +
   ylab("CDF value (units are probability)")
