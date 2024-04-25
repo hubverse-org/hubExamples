@@ -49,7 +49,7 @@ This is a data frame with four groups of columns (see the [hubverse documentatio
     - The `location` column contains a FIPS code specifying the location being predicted.
     - The `reference_date` is a date in ISO format that gives the Saturday ending the week the predictions were generated.
     - The `horizon` gives the difference between the `reference_date` and the target date of the forecasts (`target_end_date`, see next item) in units of weeks. Informally, this describes "how far ahead" the predictions are targeting.
-    - The `target_end_date` is a date in ISO format that gives the Saturday ending the week being predicted. For example, if the `target_end_date` is `"2022-12-17"`, predictions are for a quantity relating to influenza activity in the week from Sunday, December 10, 2022 through Saturday, December 17, 2022.
+    - The `target_end_date` is a date in ISO format that gives the Saturday ending the week being predicted. For example, if the `target_end_date` is `"2022-12-17"`, predictions are for a quantity relating to influenza activity in the week from Sunday, December 11, 2022 through Saturday, December 17, 2022.
     - The `target` describes the target quantity for the prediction. In the above example, the `target` of `"wk flu hosp rate"` is the weekly rate of hospital admissions per 100,000 population. The targets included in this example will be described in other sections below.
 3. The `output_type` and `output_type_id` columns provide metadata about the model predictions.
     - The `output_type` specifies the representation of the predictive distribution.
