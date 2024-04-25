@@ -40,6 +40,7 @@ The snippet below shows the format of the `forecast_outputs`.
 
 ```{r}
 head(forecast_outputs)
+str(forecast_outputs)
 ```
 
 This is a data frame with four groups of columns (see the [hubverse documentation](https://hubverse.io/en/latest/user-guide/model-output.html) for more information about these data formats):
@@ -54,13 +55,13 @@ This is a data frame with four groups of columns (see the [hubverse documentatio
 3. The `output_type` and `output_type_id` columns provide metadata about the model predictions.
     - The `output_type` specifies the representation of the predictive distribution.
     - The `output_type_id` gives additional identifying information about the predictions; the information in this column is specific to the `output_type`.
-4. The `value` contains the value of the model's prediction.
+4. The `value` column contains the value of the model's prediction.
 
 The original hub submissions contained predictions for many locations and dates, and quantile forecasts were provided at 23 different quantile levels ranging from 0.01 to 0.99.  To make the example data more manageable, the `forecast_outputs` object contains a subset of these outputs for two locations (Massachusetts, FIPS code `"25"`, and Texas, FIPS code `"48"`) and two reference dates (2022-11-19 and 2022-12-17).  Additionally, for the quantile forecasts we have subset to seven quantile levels: 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, and 0.95.
 
 ## Example forecast target data
 
-All predictions are for targets that are based on influenza hospital admissions as reported in the US National Healthcare Safety Network (NHSN). The `forecast_target_ts` object contains the observed values of these hospital admissions in a "time series format":
+All predictions are for targets that are based on influenza hospital admissions as reported in the US National Healthcare Safety Network (NHSN). The `forecast_target_ts` object contains the observed values of these hospital admissions in a time series format:
 
 ```{r}
 head(forecast_target_ts)
@@ -73,7 +74,7 @@ The `forecast_target_observations` object contains the observed values for the p
 head(forecast_target_observations)
 ```
 
-This data frame has a subset of the columns in the `forecast_outputs` that is sufficient to identify the observed value corresponding to each prediction, including the `location`, `target_end_date`, `target`, `output_type`, and `output_type_id`, along with the observed target values, recorded in the `observation` columns. Note that the `reference_date`, and `horizon` columns are not needed in this data frame, since the `target_end_date` is sufficient to align observations with predicted values.
+This data frame has a subset of the columns in the `forecast_outputs` that is sufficient to identify the observed value corresponding to each prediction, including the `location`, `target_end_date`, `target`, `output_type`, and `output_type_id`, along with the observed target values, recorded in the `observation` column. Note that the `reference_date` and `horizon` columns are not needed in this data frame, since the `target_end_date` is sufficient to align observations with predictions.
 
 # Further detail on the forecast targets
 
@@ -87,7 +88,7 @@ We will describe each of these targets in the following sections.
 
 ## The `wk inc flu hosp` target
 
-The `wk inc flu hosp` target represents weekly new hospital admissions with a confirmed influenza diagnosis.  We have predictions of this target with three output types: `quantile`, `mean`, and `median`.  The following plot shows the quantile and median predictions along with the observed hospital admission counts for Massachusetts and Texas.  Note that the quantile predictions were contributed directly by modelers to the FluSight hub, and median predictions correspond exactly to the quantile predictions at probability level 0.5.  We have obtained mean predictions from these using the [distfromq package](https://github.com/reichlab/distfromq) by estimating the full quantile function from the submitted quantile predictions, drawing a sample using the probability integral transform method, and computing the mean of those samples.
+The `wk inc flu hosp` target represents weekly new hospital admissions with a confirmed influenza diagnosis.  We have predictions of this target with three output types: `quantile`, `mean`, and `median`.  The following plot shows the quantile and median predictions along with the observed hospital admission counts for Massachusetts and Texas.  Note that the quantile predictions were contributed directly by modelers to the FluSight hub, and median predictions correspond exactly to the quantile predictions at probability level 0.5.  We have obtained mean predictions from the quantile forecasts using the [distfromq package](https://github.com/reichlab/distfromq) by estimating the full quantile function from the submitted quantile predictions, drawing a sample using the probability integral transform method, and computing the mean of those samples.
 
 ```{r}
 plot_step_ahead_model_output(
@@ -105,11 +106,12 @@ plot_step_ahead_model_output(
 )
 ```
 
-For purposes of evaluating predictions, it can be helpful to join the observed target values, contained in `forecast_target_observations`, into the data frame of forecast outputs. This enables direct comparison of predictions and observations:
+For purposes of evaluating predictions, it can be helpful to join the observed target values, contained in `forecast_target_observations`, into the data frame of forecast outputs. This enables direct comparison of predictions and observations. We illustrate this here, omitting some columns from the display for convenience:
 
 ```{r}
 forecast_outputs |>
-  left_join(forecast_target_observations)
+  left_join(forecast_target_observations) |>
+  select(-model_id, -reference_date, -horizon)
 ```
 
 ## The `wk flu hosp rate` target
@@ -121,6 +123,7 @@ For this target, we created cumulative distribution function (CDF) predictions w
 ```{r}
 forecast_outputs |>
   filter(target == "wk flu hosp rate") |>
+  select(-model_id, -reference_date, -horizon) |>
   head()
 ```
 
@@ -147,7 +150,9 @@ target_observations_to_plot <- forecast_target_observations |>
     target_end_date %in% forecasts_to_plot$target_end_date
   ) |>
   mutate(output_type_id = as.numeric(output_type_id))
-head(target_observations_to_plot)
+target_observations_to_plot |>
+  select(-model_id, -reference_date, -horizon) |>
+  head()
 
 # We illustrate that the cdf values recorded in forecast_target_observations
 # correspond to a point mass at the observed hospitalization rate.
@@ -224,7 +229,9 @@ forecasts_to_plot <- forecast_outputs |>
                             levels = c("low", "moderate", "high", "very high"),
                             ordered = TRUE)
   )
-head(forecasts_to_plot)
+forecasts_to_plot |>
+  select(-model_id, -reference_date, -horizon) |>
+  head()
 
 observations_to_plot <- forecast_target_observations |>
   filter(
@@ -237,7 +244,8 @@ observations_to_plot <- forecast_target_observations |>
                             levels = c("low", "moderate", "high", "very high"),
                             ordered = TRUE)
   )
-head(observations_to_plot)
+observations_to_plot |>
+  head()
 
 ggplot() +
   geom_raster(
