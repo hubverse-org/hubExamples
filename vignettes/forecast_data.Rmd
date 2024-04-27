@@ -46,8 +46,8 @@ str(forecast_outputs)
 This is a data frame with four groups of columns (see the [hubverse documentation](https://hubverse.io/en/latest/user-guide/model-output.html) for more information about these data formats):
 
 1. The `model_id` identifies the model that produced the predictions.
-2. Together, the `location`, `reference_date`, `horizon`, `target_end_date`, and `target` columns serve to identify a prediction task:
-    - The `location` column contains a FIPS code specifying the location being predicted.
+2. Together, the `location`, `reference_date`, `horizon`, `target_end_date`, and `target` columns are referred to as "task id variables" because they serve to identify a prediction task:
+    - The `location` column contains a FIPS code identifying the location being predicted.
     - The `reference_date` is a date in ISO format that gives the Saturday ending the week the predictions were generated.
     - The `horizon` gives the difference between the `reference_date` and the target date of the forecasts (`target_end_date`, see next item) in units of weeks. Informally, this describes "how far ahead" the predictions are targeting.
     - The `target_end_date` is a date in ISO format that gives the Saturday ending the week being predicted. For example, if the `target_end_date` is `"2022-12-17"`, predictions are for a quantity relating to influenza activity in the week from Sunday, December 11, 2022 through Saturday, December 17, 2022.
@@ -58,6 +58,8 @@ This is a data frame with four groups of columns (see the [hubverse documentatio
 4. The `value` column contains the value of the model's prediction.
 
 The original hub submissions contained predictions for many locations and dates, and quantile forecasts were provided at 23 different quantile levels ranging from 0.01 to 0.99.  To make the example data more manageable, the `forecast_outputs` object contains a subset of these outputs for two locations (Massachusetts, FIPS code `"25"`, and Texas, FIPS code `"48"`) and two reference dates (2022-11-19 and 2022-12-17).  Additionally, for the quantile forecasts we have subset to seven quantile levels: 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, and 0.95.
+
+The task id variables used and values of those variables are specific to each forecast hub. For example, a hub collecting predictions for locations other than US states would use a different location identifier than FIPS codes, and a hub might introduce additional task id variables such as an identifier of age group or disease variant depending on the goals of the hub. See the hubverse documentation for further information about [task id variables](https://hubverse.io/en/latest/user-guide/tasks.html#task-id-variables).
 
 ## Example forecast target data
 
