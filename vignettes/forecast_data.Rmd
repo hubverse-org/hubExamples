@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
   fig.width = 8,
   fig.align = "center"
 )
-options(width = 110)
+options(width = 120)
 ```
 
 ```{r setup}
@@ -37,7 +37,7 @@ We begin with a high level overview of these data objects and then we describe t
 
 The example forecasts provided in `forecast_outputs` are derived from forecasts that were submitted to the FluSight hub from three models: `Flusight-baseline`, `MOBS-GLEAM_FLUH`, and `PSI-DICE`. The original forecasts submitted to the hub were in quantile format, but we have modified those submissions to provide examples of additional model output types and targets. The predictions for these other output types should be viewed only as illustrations of the data formats, not as real examples of forecasts. We will describe the methods used for creating other forecast output types below.
 
-The snippet below shows the format of the `forecast_outputs`.
+The snippet below shows the format of the `forecast_outputs` (note: here and throughout the document, you may need to scroll to the right within displays of code output to see all data frame columns).
 
 ```{r}
 head(forecast_outputs)
