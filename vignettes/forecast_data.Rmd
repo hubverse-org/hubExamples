@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
   fig.width = 8,
   fig.align = "center"
 )
+options(width = 100)
 ```
 
 ```{r setup}
