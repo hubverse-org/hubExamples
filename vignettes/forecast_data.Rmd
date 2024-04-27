@@ -15,6 +15,7 @@ knitr::opts_chunk$set(
   fig.width = 8,
   fig.align = "center"
 )
+options(width = 120)
 ```
 
 ```{r setup}
@@ -36,11 +37,10 @@ We begin with a high level overview of these data objects and then we describe t
 
 The example forecasts provided in `forecast_outputs` are derived from forecasts that were submitted to the FluSight hub from three models: `Flusight-baseline`, `MOBS-GLEAM_FLUH`, and `PSI-DICE`. The original forecasts submitted to the hub were in quantile format, but we have modified those submissions to provide examples of additional model output types and targets. The predictions for these other output types should be viewed only as illustrations of the data formats, not as real examples of forecasts. We will describe the methods used for creating other forecast output types below.
 
-The snippet below shows the format of the `forecast_outputs`.
+The snippet below shows the format of the `forecast_outputs` (note: here and throughout the document, you may need to scroll to the right within displays of code output to see all data frame columns).
 
 ```{r}
 head(forecast_outputs)
-str(forecast_outputs)
 ```
 
 This is a data frame with four groups of columns (see the [hubverse documentation](https://hubverse.io/en/latest/user-guide/model-output.html) for more information about these data formats):
@@ -59,7 +59,7 @@ This is a data frame with four groups of columns (see the [hubverse documentatio
 
 The original hub submissions contained predictions for many locations and dates, and quantile forecasts were provided at 23 different quantile levels ranging from 0.01 to 0.99.  To make the example data more manageable, the `forecast_outputs` object contains a subset of these outputs for two locations (Massachusetts, FIPS code `"25"`, and Texas, FIPS code `"48"`) and two reference dates (2022-11-19 and 2022-12-17).  Additionally, for the quantile forecasts we have subset to seven quantile levels: 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, and 0.95.
 
-The task id variables used and values of those variables are specific to each forecast hub. For example, a hub collecting predictions for locations other than US states would use a different location identifier than FIPS codes, and a hub might introduce additional task id variables such as an identifier of age group or disease variant depending on the goals of the hub. See the hubverse documentation for further information about [task id variables](https://hubverse.io/en/latest/user-guide/tasks.html#task-id-variables).
+The task id variables used and values of those variables are specific to each modeling hub. For example, a hub collecting predictions for locations other than US states would use a different location identifier than FIPS codes, and a hub might introduce additional task id variables such as an identifier of age group or disease variant depending on the goals of the hub. See the hubverse documentation for further information about [task id variables](https://hubverse.io/en/latest/user-guide/tasks.html#task-id-variables).
 
 ## Example forecast target data
 
@@ -90,7 +90,7 @@ We will describe each of these targets in the following sections.
 
 ## The `wk inc flu hosp` target
 
-The `wk inc flu hosp` target represents weekly new hospital admissions with a confirmed influenza diagnosis.  We have predictions of this target with three output types: `quantile`, `mean`, and `median`.  The following plot shows the quantile and median predictions along with the observed hospital admission counts for Massachusetts and Texas.  Note that the quantile predictions were contributed directly by modelers to the FluSight hub, and median predictions correspond exactly to the quantile predictions at probability level 0.5.  We have obtained mean predictions from the quantile forecasts using the [distfromq package](https://github.com/reichlab/distfromq) by estimating the full quantile function from the submitted quantile predictions, drawing a sample using the probability integral transform method, and computing the mean of those samples.
+The `wk inc flu hosp` target represents weekly new hospital admissions with a confirmed influenza diagnosis.  We have predictions of this target with three output types: `quantile`, `mean`, and `median`.  The following plot shows the quantile and median predictions along with the observed hospital admission counts for Massachusetts and Texas.  Note that the quantile predictions were contributed directly by modelers to the FluSight hub, and median predictions correspond exactly to the quantile predictions at probability level 0.5.  We have obtained mean predictions from the quantile forecasts using the [distfromq package](https://github.com/reichlab/distfromq) by estimating the full quantile function from the submitted quantile predictions, drawing sample from that distribution using the probability integral transform method, and computing the mean of those samples.
 
 ```{r}
 plot_step_ahead_model_output(
@@ -112,6 +112,7 @@ For purposes of evaluating predictions, it can be helpful to join the observed t
 
 ```{r}
 forecast_outputs |>
+  filter(target == "wk inc flu hosp") |>
   left_join(forecast_target_observations) |>
   select(-model_id, -reference_date, -horizon)
 ```
@@ -186,10 +187,11 @@ ggplot() +
 
 ## The `wk flu hosp rate category` target
 
-The "wk flu hosp rate category" target represents a categorical intensity level of influenza activity, defined as "low" (hospital admissions rate per 100,000 $\leq$ 2.5), "moderate" (2.5 < admissions rate $\leq$ 5), "high" (5 < admissions rate $\leq$ 7.5), or "very high" (7.5 < admissions rate).  The `forecast_outputs` object has example forecasts for this target in a PMF format, with a probability assigned to each intensity category.  Again, forecasts of this target were not collected by the FluSight hub; we have derived predictions from the submitted quantile forecasts using the `distfromq` package.  For context, the following plot displays the observed data for the 2022/23 season on the scale of hospital admissions, with the boundaries of the intensity categories denoted with horizontal lines:
+The "wk flu hosp rate category" target represents a categorical intensity level of influenza activity, defined as "low" (hospital admissions rate per 100,000 $\leq$ 2.5), "moderate" (2.5 < admissions rate $\leq$ 5), "high" (5 < admissions rate $\leq$ 7.5), or "very high" (7.5 < admissions rate).  The `forecast_outputs` object has example forecasts for this target in a PMF format, with a probability assigned to each intensity category.  Again, forecasts of this target were not collected by the FluSight hub; we have derived predictions from the submitted quantile forecasts using the `distfromq` package.  For context, the following plot displays the observed data for the 2022/23 season on the scale of hospital admissions per 100,000 population, with the boundaries of the intensity categories denoted with horizontal lines:
 
 ```{r}
-# a data frame containing location FIPS codes and population values in units of 100,000 people
+# a data frame containing location FIPS codes and population values
+# in units of 100,000 people
 population_values <- data.frame(
   location = c("25", "48"),
   population_100k = c(6978662, 29914599) / 100000
@@ -219,6 +221,8 @@ ggplot() +
 Here is a plot showing the predictive distributions for these targets from the three included models.  Color indicates the predicted probability for each intensity category.  The observed category is indicated with a `+` in the plot, while unobserved categories are indicated with an `o`.  Here, the PMF value recorded in `forecast_target_observations` corresponds to a point mass at the observed category, with a value of 1 for the observed category and a value of 0 for the other categories.
 
 ```{r}
+# extract a subset of forecasts to plot and
+# set the output_type_id to be an ordered factor
 forecasts_to_plot <- forecast_outputs |>
   filter(
     target == "wk flu hosp rate category",
@@ -233,6 +237,7 @@ forecasts_to_plot |>
   select(-model_id, -reference_date, -horizon) |>
   head()
 
+# extract the corresponding observations
 observations_to_plot <- forecast_target_observations |>
   filter(
     location %in% c("25", "48"),
@@ -247,16 +252,22 @@ observations_to_plot <- forecast_target_observations |>
 observations_to_plot |>
   head()
 
+# plot the predictions and observations
 ggplot() +
   geom_raster(
     mapping = aes(x = target_end_date, y = output_type_id, fill = value),
     data = forecasts_to_plot
   ) +
-  scale_fill_viridis_c(breaks = seq(from = 0, to = 1, by = 0.2),
-                       limits = c(0, 1)) +
+  scale_fill_viridis_c(
+    breaks = seq(from = 0, to = 1, by = 0.2),
+    limits = c(0, 1)
+  ) +
   geom_point(
-    mapping = aes(x = target_end_date, y = output_type_id, shape = factor(observation)),
-    data = observations_to_plot
+    mapping = aes(x = target_end_date, y = output_type_id,
+                  shape = factor(observation)),
+    color = "#888888",
+    size = 3, stroke = 2,
+    data = observations_to_plot,
   ) +
   scale_shape_manual(
     values = c(1, 3),
