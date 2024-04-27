@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
   fig.width = 8,
   fig.align = "center"
 )
-options(width = 100)
+options(width = 110)
 ```
 
 ```{r setup}
@@ -41,7 +41,6 @@ The snippet below shows the format of the `forecast_outputs`.
 
 ```{r}
 head(forecast_outputs)
-str(forecast_outputs)
 ```
 
 This is a data frame with four groups of columns (see the [hubverse documentation](https://hubverse.io/en/latest/user-guide/model-output.html) for more information about these data formats):
@@ -190,7 +189,8 @@ ggplot() +
 The "wk flu hosp rate category" target represents a categorical intensity level of influenza activity, defined as "low" (hospital admissions rate per 100,000 $\leq$ 2.5), "moderate" (2.5 < admissions rate $\leq$ 5), "high" (5 < admissions rate $\leq$ 7.5), or "very high" (7.5 < admissions rate).  The `forecast_outputs` object has example forecasts for this target in a PMF format, with a probability assigned to each intensity category.  Again, forecasts of this target were not collected by the FluSight hub; we have derived predictions from the submitted quantile forecasts using the `distfromq` package.  For context, the following plot displays the observed data for the 2022/23 season on the scale of hospital admissions, with the boundaries of the intensity categories denoted with horizontal lines:
 
 ```{r}
-# a data frame containing location FIPS codes and population values in units of 100,000 people
+# a data frame containing location FIPS codes and population values
+# in units of 100,000 people
 population_values <- data.frame(
   location = c("25", "48"),
   population_100k = c(6978662, 29914599) / 100000
@@ -220,6 +220,8 @@ ggplot() +
 Here is a plot showing the predictive distributions for these targets from the three included models.  Color indicates the predicted probability for each intensity category.  The observed category is indicated with a `+` in the plot, while unobserved categories are indicated with an `o`.  Here, the PMF value recorded in `forecast_target_observations` corresponds to a point mass at the observed category, with a value of 1 for the observed category and a value of 0 for the other categories.
 
 ```{r}
+# extract a subset of forecasts to plot and
+# set the output_type_id to be an ordered factor
 forecasts_to_plot <- forecast_outputs |>
   filter(
     target == "wk flu hosp rate category",
@@ -234,6 +236,7 @@ forecasts_to_plot |>
   select(-model_id, -reference_date, -horizon) |>
   head()
 
+# extract the corresponding observations
 observations_to_plot <- forecast_target_observations |>
   filter(
     location %in% c("25", "48"),
@@ -248,15 +251,19 @@ observations_to_plot <- forecast_target_observations |>
 observations_to_plot |>
   head()
 
+# plot the predictions and observations
 ggplot() +
   geom_raster(
     mapping = aes(x = target_end_date, y = output_type_id, fill = value),
     data = forecasts_to_plot
   ) +
-  scale_fill_viridis_c(breaks = seq(from = 0, to = 1, by = 0.2),
-                       limits = c(0, 1)) +
+  scale_fill_viridis_c(
+    breaks = seq(from = 0, to = 1, by = 0.2),
+    limits = c(0, 1)
+  ) +
   geom_point(
-    mapping = aes(x = target_end_date, y = output_type_id, shape = factor(observation)),
+    mapping = aes(x = target_end_date, y = output_type_id,
+                  shape = factor(observation)),
     data = observations_to_plot
   ) +
   scale_shape_manual(
