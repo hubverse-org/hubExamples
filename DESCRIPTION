@@ -1,6 +1,6 @@
 Package: hubExamples
 Title: Example Hub Data
-Version: 0.0.0.9001
+Version: 0.0.0.9002
 Authors@R: c(
     person(given = "Evan L",
            family = "Ray",
@@ -29,11 +29,11 @@ Suggests:
     rmarkdown,
     testthat (>= 3.0.0)
 Remotes:
-    Infectious-Disease-Modeling-Hubs/hubVis
+    hubverse-org/hubVis
 Config/testthat/edition: 3
-URL: https://github.com/Infectious-Disease-Modeling-Hubs/hubExamples
-BugReports: https://github.com/Infectious-Disease-Modeling-Hubs/hubExamples/issues
-Config/Needs/website: Infectious-Disease-Modeling-Hubs/hubStyle
+URL: https://github.com/hubverse-org/hubExamples
+BugReports: https://github.com/hubverse-org/hubExamples/issues
+Config/Needs/website: hubverse-org/hubStyle
 Depends: 
     R (>= 2.10)
 LazyData: true

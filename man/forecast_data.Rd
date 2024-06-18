@@ -59,7 +59,7 @@ not have an \code{output_type_id}.}
 }
 }
 \source{
-\url{https://github.com/Infectious-Disease-Modeling-Hubs/example-complex-forecast-hub/}
+\url{https://github.com/hubverse-org/example-complex-forecast-hub/}
 }
 \usage{
 forecast_outputs

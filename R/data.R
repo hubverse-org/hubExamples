@@ -5,7 +5,7 @@
 #' `forecast_target_observations`.
 #'
 #' @name forecast_data
-#' @source <https://github.com/Infectious-Disease-Modeling-Hubs/example-complex-forecast-hub/>
+#' @source <https://github.com/hubverse-org/example-complex-forecast-hub/>
 NULL
 
 #' Forecast outputs
@@ -81,7 +81,7 @@ NULL
 #' target data for an example scenario hub: `scenario_outputs` and `scenario_target_ts`.
 #'
 #' @name scenario_data
-#' @source <https://github.com/Infectious-Disease-Modeling-Hubs/example-complex-scenario-hub/>
+#' @source <https://github.com/hubverse-org/example-complex-scenario-hub/>
 NULL
 
 #' Scenario outputs

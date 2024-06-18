@@ -29,7 +29,7 @@ library(ggplot2)
 
 The `hubExamples` package provides three data sets that contain example model output and
 target data for an example forecast hub: `forecast_outputs`, `forecast_target_ts`, and
-`forecast_target_observations`. These forecasts and target data are a subset of the model outputs and target data that are provided in the [example-complex-forecast-hub](https://github.com/Infectious-Disease-Modeling-Hubs/example-complex-forecast-hub). These data were in turn derived from forecast submissions and target data for the [FluSight Forecast Hub](https://github.com/cdcepi/Flusight-forecast-data) for the 2022/23 season.
+`forecast_target_observations`. These forecasts and target data are a subset of the model outputs and target data that are provided in the [example-complex-forecast-hub](https://github.com/hubverse-org/example-complex-forecast-hub). These data were in turn derived from forecast submissions and target data for the [FluSight Forecast Hub](https://github.com/cdcepi/Flusight-forecast-data) for the 2022/23 season.
 
 We begin with a high level overview of these data objects and then we describe the different forecast targets in more detail.
 
@@ -147,7 +147,7 @@ forecast_outputs |>
 
 ## The `wk flu hosp rate` target
 
-The `wk flu hosp rate` target represents the rate of weekly confirmed influenza hospital admissions per 100,000 population. Note that this target was not included in the FluSight hub; we have introduced it here for illustrative purposes. We have used population values of 6,978,662 for Massachusetts and 29,914,599 for Texas. These population values are sourced from the [auxiliary data file](https://github.com/cdcepi/FluSight-forecast-hub/blob/main/auxiliary-data/locations.csv) provided by the FluSight hub, which are also reproduced in the [example-complex-forecast-hub](https://github.com/Infectious-Disease-Modeling-Hubs/example-complex-forecast-hub) repository.
+The `wk flu hosp rate` target represents the rate of weekly confirmed influenza hospital admissions per 100,000 population. Note that this target was not included in the FluSight hub; we have introduced it here for illustrative purposes. We have used population values of 6,978,662 for Massachusetts and 29,914,599 for Texas. These population values are sourced from the [auxiliary data file](https://github.com/cdcepi/FluSight-forecast-hub/blob/main/auxiliary-data/locations.csv) provided by the FluSight hub, which are also reproduced in the [example-complex-forecast-hub](https://github.com/hubverse-org/example-complex-forecast-hub) repository.
 
 For this target, we created cumulative distribution function (CDF) predictions with evenly spaced CDF evaluation points ranging from 0.25 to 25 in increments of 0.25 hospitalizations per 100,000 population:
 

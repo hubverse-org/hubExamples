@@ -42,7 +42,7 @@ in the week ending on the given \code{date}.}
 }
 }
 \source{
-\url{https://github.com/Infectious-Disease-Modeling-Hubs/example-complex-scenario-hub/}
+\url{https://github.com/hubverse-org/example-complex-scenario-hub/}
 }
 \usage{
 scenario_outputs
