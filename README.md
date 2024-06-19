@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# hubExamples <a href="https://Infectious-Disease-Modeling-Hubs.github.io/hubExamples/"><img src="man/figures/logo.png" align="right" height="131" alt="hubExamples website" /></a>
+# hubExamples <a href="https://hubverse-org.github.io/hubExamples/"><img src="man/figures/logo.png" align="right" height="131" alt="hubExamples website" /></a>
 
 <!-- badges: start -->
 
@@ -9,7 +9,7 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/hubExamples)](https://CRAN.R-project.org/package=hubExamples)
-[![R-CMD-check](https://github.com/Infectious-Disease-Modeling-Hubs/hubExamples/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/Infectious-Disease-Modeling-Hubs/hubExamples/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/hubverse-org/hubExamples/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/hubverse-org/hubExamples/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of hubExamples is to provide example data for forecasting and
@@ -27,7 +27,7 @@ You can install the development version of hubExamples from
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("Infectious-Disease-Modeling-Hubs/hubExamples")
+remotes::install_github("hubverse-org/hubExamples")
 ```
 
 ## Example forecast hub data
