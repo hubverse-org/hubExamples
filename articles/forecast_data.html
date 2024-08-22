@@ -5,7 +5,6 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<meta name="description" content="hubExamples">
 <title>Example forecast hub data • hubExamples</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
@@ -15,57 +14,43 @@
 <link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
-<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.11/clipboard.min.js" integrity="sha512-7O5pXpc0oCRrxk8RUfDYFgn0nO1t+jLuIOQdOMRp4APB7uZ4vSjspzp5y6YDtDs4VzUSTbWzBFZ/LKJhnyFOKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Example forecast hub data">
-<meta property="og:description" content="hubExamples">
-<meta property="og:image" content="https://hubverse-org.github.io/hubExamples/logo.png">
-<!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
+<script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.4.2/css/all.min.css" rel="stylesheet">
+<link href="../deps/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Example forecast hub data">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
-    
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light" data-bs-theme="light"><div class="container">
+
+    <nav class="navbar navbar-expand-lg fixed-top bg-light" data-bs-theme="light" aria-label="Site navigation"><div class="container">
     <a href="https://hubdocs.readthedocs.io/en/latest/" class="external-link"><img src="https://raw.githubusercontent.com/hubverse-org/hubStyle/main/inst/hubverse.png" id="logo" height="30" alt="hubverse"></a>
     <a class="navbar-brand me-2" href="../index.html">hubExamples</a>
 
     <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9002</small>
 
-    
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"></ul>
-<form class="form-inline my-2 my-lg-0" role="search">
-        <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off">
-</form>
-
-      <ul class="navbar-nav">
-<li class="nav-item">
-  <a class="nav-link" href="../reference/index.html">Reference</a>
-</li>
+<ul class="navbar-nav">
+<li class="nav-item"><form class="form-inline" role="search">
+ <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="../search.json">
+</form></li>
+<li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="active nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/forecast_data.html">Example forecast hub data</a>
-  </div>
+  <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-articles">
+<li><a class="dropdown-item" href="../articles/forecast_data.html">Example forecast hub data</a></li>
+  </ul>
 </li>
-<li class="nav-item">
-  <a class="external-link nav-link" href="https://github.com/hubverse-org/hubExamples/" aria-label="github">
-    <span class="fab fa fab fa-github fa-lg"></span>
-     
-  </a>
-</li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/hubverse-org/hubExamples/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
-    
+
   </div>
 </nav><div class="container template-article">
 
@@ -77,7 +62,7 @@
       <img src="../logo.png" class="logo" alt=""><h1>Example forecast hub data</h1>
             
       
-      <small class="dont-index">Source: <a href="https://github.com/hubverse-org/hubExamples/blob/HEAD/vignettes/forecast_data.Rmd" class="external-link"><code>vignettes/forecast_data.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/hubverse-org/hubExamples/blob/main/vignettes/forecast_data.Rmd" class="external-link"><code>vignettes/forecast_data.Rmd</code></a></small>
       <div class="d-none name"><code>forecast_data.Rmd</code></div>
     </div>
 
@@ -85,7 +70,7 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hubverse-org/hubExamples" class="external-link">hubExamples</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/Infectious-Disease-Modeling-Hubs/hubVis" class="external-link">hubVis</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hubverse-org/hubVis" class="external-link">hubVis</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
@@ -94,9 +79,8 @@
 <span><span class="co">#&gt;     filter, lag</span></span>
 <span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></code></pre></div>
+<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
@@ -128,7 +112,7 @@ other forecast output types below.</p>
 <code>forecast_outputs</code> (note: here and throughout the document,
 you may need to scroll to the right within displays of code output to
 see all data frame columns).</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">forecast_outputs</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 9</span></span></span>
 <span><span class="co">#&gt;   model_id          location reference_date horizon target_end_date target           output_type output_type_id  value</span></span>
@@ -208,7 +192,7 @@ id variables</a>.</p>
 admissions as reported in the US National Healthcare Safety Network
 (NHSN). The <code>forecast_target_ts</code> object contains the observed
 values of these hospital admissions in a time series format:</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">forecast_target_ts</span><span class="op">)</span></span>
 <span><span class="co">#&gt;         date location observation</span></span>
 <span><span class="co">#&gt; 1 2020-01-11       01           0</span></span>
@@ -216,9 +200,8 @@ values of these hospital admissions in a time series format:</p>
 <span><span class="co">#&gt; 3 2020-01-11       18           0</span></span>
 <span><span class="co">#&gt; 4 2020-01-11       27           0</span></span>
 <span><span class="co">#&gt; 5 2020-01-11       30           0</span></span>
-<span><span class="co">#&gt; 6 2020-01-11       37           0</span></span></code></pre></div>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">forecast_target_ts</span><span class="op">)</span></span>
+<span><span class="co">#&gt; 6 2020-01-11       37           0</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">forecast_target_ts</span><span class="op">)</span></span>
 <span><span class="co">#&gt;             date location observation</span></span>
 <span><span class="co">#&gt; 10250 2023-11-11       51          88</span></span>
 <span><span class="co">#&gt; 10251 2023-11-11       50           3</span></span>
@@ -228,7 +211,7 @@ values of these hospital admissions in a time series format:</p>
 <span><span class="co">#&gt; 10255 2023-11-11       56           7</span></span></code></pre></div>
 <p>The <code>forecast_target_observations</code> object contains the
 observed values for the prediction targets:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">forecast_target_observations</span><span class="op">)</span></span>
 <span><span class="co">#&gt;   location target_end_date          target output_type output_type_id observation</span></span>
 <span><span class="co">#&gt; 1       US      2022-10-22 wk inc flu hosp    quantile           &lt;NA&gt;        2380</span></span>
@@ -254,7 +237,7 @@ sufficient to align observations with predictions.</p>
 </h2>
 <p>The example forecast data contains the following combinations of
 <code>target</code> and <code>output_type</code>:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">forecast_outputs</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/distinct.html" class="external-link">distinct</a></span><span class="op">(</span><span class="va">target</span>, <span class="va">output_type</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">target</span>, <span class="va">output_type</span><span class="op">)</span></span>
@@ -289,8 +272,8 @@ each location and target date combination.</p>
 <p>The following plot shows the quantile and median predictions along
 with the observed hospital admission counts for Massachusetts and
 Texas.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/pkg/hubVis/man/plot_step_ahead_model_output.html" class="external-link">plot_step_ahead_model_output</a></span><span class="op">(</span></span>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://hubverse-org.github.io/hubVis/reference/plot_step_ahead_model_output.html" class="external-link">plot_step_ahead_model_output</a></span><span class="op">(</span></span>
 <span>  model_output_data <span class="op">=</span> <span class="va">forecast_outputs</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">output_type</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"quantile"</span>, <span class="st">"median"</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  target_data <span class="op">=</span> <span class="va">forecast_target_ts</span> <span class="op">|&gt;</span></span>
@@ -308,7 +291,7 @@ Texas.</p>
 <p>The following plot shows the target data and predictive samples for
 just predictions for Massachusetts with reference date December 17, 2022
 generated by the “MOBS-GLEAM_FLUH” model.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span></span>
 <span>    data <span class="op">=</span> <span class="va">forecast_target_ts</span> <span class="op">|&gt;</span></span>
@@ -336,7 +319,7 @@ observed target values, contained in
 forecast outputs. This enables direct comparison of predictions and
 observations. We illustrate this here, omitting some columns from the
 display for convenience:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">forecast_outputs</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">target</span> <span class="op">==</span> <span class="st">"wk inc flu hosp"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">forecast_target_observations</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -372,7 +355,7 @@ repository.</p>
 <p>For this target, we created cumulative distribution function (CDF)
 predictions with evenly spaced CDF evaluation points ranging from 0.25
 to 25 in increments of 0.25 hospitalizations per 100,000 population:</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">forecast_outputs</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">target</span> <span class="op">==</span> <span class="st">"wk flu hosp rate"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">model_id</span>, <span class="op">-</span><span class="va">reference_date</span>, <span class="op">-</span><span class="va">horizon</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -404,7 +387,7 @@ observation for this target, which was between 9.75 and 10
 hospitalizations per 100,000 population. This CDF corresponds to a point
 mass at the observed value, with a value of 0 below the observation and
 a value of 1 above the observation.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># Subset the forecasts and observations to those that we will plot</span></span>
 <span><span class="va">forecasts_to_plot</span> <span class="op">&lt;-</span> <span class="va">forecast_outputs</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
@@ -423,9 +406,8 @@ a value of 1 above the observation.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> MOBS-GLEAM_FLUH 25       2022-12-17           0 2022-12-17      wk flu hosp rate cdf                   0.75 2.80<span style="color: #949494;">e</span><span style="color: #BB0000;">-18</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> MOBS-GLEAM_FLUH 25       2022-12-17           0 2022-12-17      wk flu hosp rate cdf                   1    4.37<span style="color: #949494;">e</span><span style="color: #BB0000;">-17</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> MOBS-GLEAM_FLUH 25       2022-12-17           0 2022-12-17      wk flu hosp rate cdf                   1.25 6.17<span style="color: #949494;">e</span><span style="color: #BB0000;">-16</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> MOBS-GLEAM_FLUH 25       2022-12-17           0 2022-12-17      wk flu hosp rate cdf                   1.5  7.87<span style="color: #949494;">e</span><span style="color: #BB0000;">-15</span></span></span></code></pre></div>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> MOBS-GLEAM_FLUH 25       2022-12-17           0 2022-12-17      wk flu hosp rate cdf                   1.5  7.87<span style="color: #949494;">e</span><span style="color: #BB0000;">-15</span></span></span>
+<span></span>
 <span><span class="va">target_observations_to_plot</span> <span class="op">&lt;-</span> <span class="va">forecast_target_observations</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
 <span>    <span class="va">target</span> <span class="op">==</span> <span class="st">"wk flu hosp rate"</span>,</span>
@@ -440,9 +422,8 @@ a value of 1 above the observation.</p>
 <span><span class="co">#&gt; 3       25      2022-12-17 wk flu hosp rate         cdf           0.75           0</span></span>
 <span><span class="co">#&gt; 4       25      2022-12-17 wk flu hosp rate         cdf           1.00           0</span></span>
 <span><span class="co">#&gt; 5       25      2022-12-17 wk flu hosp rate         cdf           1.25           0</span></span>
-<span><span class="co">#&gt; 6       25      2022-12-17 wk flu hosp rate         cdf           1.50           0</span></span></code></pre></div>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
+<span><span class="co">#&gt; 6       25      2022-12-17 wk flu hosp rate         cdf           1.50           0</span></span>
+<span></span>
 <span><span class="co"># We illustrate that the cdf values recorded in forecast_target_observations</span></span>
 <span><span class="co"># correspond to a point mass at the observed hospitalization rate.</span></span>
 <span><span class="va">first_one_ind</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">target_observations_to_plot</span><span class="op">$</span><span class="va">observation</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
@@ -452,9 +433,8 @@ a value of 1 above the observation.</p>
 <span><span class="co">#&gt; 39       25      2022-12-17 wk flu hosp rate         cdf           9.75           0</span></span>
 <span><span class="co">#&gt; 40       25      2022-12-17 wk flu hosp rate         cdf          10.00           1</span></span>
 <span><span class="co">#&gt; 41       25      2022-12-17 wk flu hosp rate         cdf          10.25           1</span></span>
-<span><span class="co">#&gt; 42       25      2022-12-17 wk flu hosp rate         cdf          10.50           1</span></span></code></pre></div>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
+<span><span class="co">#&gt; 42       25      2022-12-17 wk flu hosp rate         cdf          10.50           1</span></span>
+<span></span>
 <span><span class="co"># Make the plot</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span></span>
@@ -475,7 +455,7 @@ a value of 1 above the observation.</p>
 <span>    <span class="st">"CDF"</span>,</span>
 <span>    values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html" class="external-link">vars</a></span><span class="op">(</span><span class="va">target_end_date</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html" class="external-link">vars</a></span><span class="op">(</span><span class="va">target_end_date</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">xlab</a></span><span class="op">(</span><span class="st">"output_type_id (units are hospital admissions per 100,000 population)"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">"CDF value (units are probability)"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="forecast_data_files/figure-html/unnamed-chunk-10-1.png" width="768" style="display: block; margin: auto;"></p>
@@ -485,19 +465,22 @@ a value of 1 above the observation.</p>
 </h3>
 <p>The “wk flu hosp rate category” target represents a categorical
 intensity level of influenza activity, defined as “low” (hospital
-admissions rate per 100,000 <span class="math inline">\(\leq\)</span>
-2.5), “moderate” (2.5 &lt; admissions rate <span class="math inline">\(\leq\)</span> 5), “high” (5 &lt; admissions rate
-<span class="math inline">\(\leq\)</span> 7.5), or “very high” (7.5 &lt;
-admissions rate). The <code>forecast_outputs</code> object has example
-forecasts for this target in a PMF format, with a probability assigned
-to each intensity category. Again, forecasts of this target were not
-collected by the FluSight hub; we have derived predictions from the
-submitted quantile forecasts using the <code>distfromq</code> package.
-For context, the following plot displays the observed data for the
-2022/23 season on the scale of hospital admissions per 100,000
-population, with the boundaries of the intensity categories denoted with
-horizontal lines:</p>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+admissions rate per 100,000
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>≤</mo><annotation encoding="application/x-tex">\leq</annotation></semantics></math>
+2.5), “moderate” (2.5 &lt; admissions rate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>≤</mo><annotation encoding="application/x-tex">\leq</annotation></semantics></math>
+5), “high” (5 &lt; admissions rate
+<math display="inline" xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mo>≤</mo><annotation encoding="application/x-tex">\leq</annotation></semantics></math>
+7.5), or “very high” (7.5 &lt; admissions rate). The
+<code>forecast_outputs</code> object has example forecasts for this
+target in a PMF format, with a probability assigned to each intensity
+category. Again, forecasts of this target were not collected by the
+FluSight hub; we have derived predictions from the submitted quantile
+forecasts using the <code>distfromq</code> package. For context, the
+following plot displays the observed data for the 2022/23 season on the
+scale of hospital admissions per 100,000 population, with the boundaries
+of the intensity categories denoted with horizontal lines:</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># a data frame containing location FIPS codes and population values</span></span>
 <span><span class="co"># in units of 100,000 people</span></span>
 <span><span class="va">population_values</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
@@ -511,9 +494,8 @@ horizontal lines:</p>
 <span>         <span class="va">date</span> <span class="op">&gt;=</span> <span class="st">"2022-10-01"</span>, <span class="va">date</span> <span class="op">&lt;=</span> <span class="st">"2023-04-01"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">population_values</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>rate <span class="op">=</span> <span class="va">observation</span> <span class="op">/</span> <span class="va">population_100k</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Joining with `by = join_by(location)`</span></span></code></pre></div>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
+<span><span class="co">#&gt; Joining with `by = join_by(location)`</span></span>
+<span></span>
 <span><span class="co"># plot along with intensity thresholds</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span></span>
@@ -525,7 +507,7 @@ horizontal lines:</p>
 <span>    linetype <span class="op">=</span> <span class="fl">2</span>,</span>
 <span>    data <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span>y <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.5</span>, <span class="fl">5</span>, <span class="fl">7.5</span><span class="op">)</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html" class="external-link">vars</a></span><span class="op">(</span><span class="va">location</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html" class="external-link">facet_wrap</a></span><span class="op">(</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html" class="external-link">vars</a></span><span class="op">(</span><span class="va">location</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <p><img src="forecast_data_files/figure-html/unnamed-chunk-11-1.png" width="768" style="display: block; margin: auto;"></p>
 <p>Here is a plot showing the predictive distributions for these targets
 from the three included models. Color indicates the predicted
@@ -535,7 +517,7 @@ are indicated with an <code>o</code>. Here, the PMF value recorded in
 <code>forecast_target_observations</code> corresponds to a point mass at
 the observed category, with a value of 1 for the observed category and a
 value of 0 for the other categories.</p>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># extract a subset of forecasts to plot and</span></span>
 <span><span class="co"># set the output_type_id to be an ordered factor</span></span>
 <span><span class="va">forecasts_to_plot</span> <span class="op">&lt;-</span> <span class="va">forecast_outputs</span> <span class="op">|&gt;</span></span>
@@ -559,9 +541,8 @@ value of 0 for the other categories.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 25       2022-12-17      wk flu hosp rate category pmf         high           0.039<span style="text-decoration: underline;">7</span>    </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 25       2022-12-17      wk flu hosp rate category pmf         very high      0.959     </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 25       2022-12-24      wk flu hosp rate category pmf         low            0.000<span style="text-decoration: underline;">009</span>70</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 25       2022-12-24      wk flu hosp rate category pmf         moderate       0.002<span style="text-decoration: underline;">94</span></span></span></code></pre></div>
-<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 25       2022-12-24      wk flu hosp rate category pmf         moderate       0.002<span style="text-decoration: underline;">94</span></span></span>
+<span></span>
 <span><span class="co"># extract the corresponding observations</span></span>
 <span><span class="va">observations_to_plot</span> <span class="op">&lt;-</span> <span class="va">forecast_target_observations</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
@@ -582,9 +563,8 @@ value of 0 for the other categories.</p>
 <span><span class="co">#&gt; 3       25      2022-12-17 wk flu hosp rate category         pmf           high           0</span></span>
 <span><span class="co">#&gt; 4       25      2022-12-17 wk flu hosp rate category         pmf      very high           1</span></span>
 <span><span class="co">#&gt; 5       48      2022-12-17 wk flu hosp rate category         pmf            low           0</span></span>
-<span><span class="co">#&gt; 6       48      2022-12-17 wk flu hosp rate category         pmf       moderate           1</span></span></code></pre></div>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span></span>
+<span><span class="co">#&gt; 6       48      2022-12-17 wk flu hosp rate category         pmf       moderate           1</span></span>
+<span></span>
 <span><span class="co"># plot the predictions and observations</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">geom_raster</a></span><span class="op">(</span></span>
@@ -606,12 +586,12 @@ value of 0 for the other categories.</p>
 <span>    values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span>,</span>
 <span>    breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html" class="external-link">facet_grid</a></span><span class="op">(</span>rows <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html" class="external-link">vars</a></span><span class="op">(</span><span class="va">model_id</span><span class="op">)</span>, cols <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/vars.html" class="external-link">vars</a></span><span class="op">(</span><span class="va">location</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
+<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/facet_grid.html" class="external-link">facet_grid</a></span><span class="op">(</span>rows <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html" class="external-link">vars</a></span><span class="op">(</span><span class="va">model_id</span><span class="op">)</span>, cols <span class="op">=</span> <span class="fu"><a href="https://dplyr.tidyverse.org/reference/vars.html" class="external-link">vars</a></span><span class="op">(</span><span class="va">location</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">ylab</a></span><span class="op">(</span><span class="st">"output_type_id (intensity level category)"</span><span class="op">)</span></span></code></pre></div>
 <p><img src="forecast_data_files/figure-html/unnamed-chunk-12-1.png" width="768" style="display: block; margin: auto;"></p>
 </div>
 </div>
-  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+  </main><aside class="col-md-3"><nav id="toc" aria-label="Table of contents"><h2>On this page</h2>
     </nav></aside>
 </div>
 
@@ -622,15 +602,15 @@ value of 0 for the other categories.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.9. PR Previews built by <a href="https://www.netlify.com" class="external-link">Netlify</a>. Provided without <strong>any warranty</strong>.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.0. PR Previews built by <a href="https://www.netlify.com" class="external-link">Netlify</a>. Provided without <strong>any warranty</strong>.</p>
 </div>
 
     </footer>
 </div>
 
-  
 
-  
+
+
 
   </body>
 </html>
