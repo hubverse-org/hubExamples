@@ -1,0 +1,20 @@
+repos:
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.6.0
+  hooks:
+  - id: trailing-whitespace
+  - id: check-yaml
+    args: [--allow-multiple-documents]
+  - id: detect-aws-credentials
+    args: [--allow-missing-credentials]
+  - id: detect-private-key
+- repo: https://github.com/codespell-project/codespell
+  rev: v2.3.0
+  hooks:
+  - id: codespell
+- repo: https://github.com/lorenzwalthert/precommit
+  rev: v0.4.3
+  hooks:
+  - id: no-browser-statement
+  - id: style-files
+    args: [--cache-root=styler]
