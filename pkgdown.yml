@@ -3,7 +3,7 @@ pkgdown: 2.1.0
 pkgdown_sha: ~
 articles:
   forecast_data: forecast_data.html
-last_built: 2024-08-22T20:14Z
+last_built: 2024-08-26T18:06Z
 urls:
   reference: https://hubverse-org.github.io/hubExamples/reference
   article: https://hubverse-org.github.io/hubExamples/articles
