@@ -10,7 +10,10 @@ source(file.path(forecast_data_path, "generate_example_forecast_data.R"))
 
 
 test_that("forecast_outputs dataset is generated correctly", {
-  cols <- c("output_type", "reference_date", "horizon", "target_end_date", "location", "model_id", "target", "output_type_id", "value")
+  cols <- c(
+    "output_type", "reference_date", "horizon", "target_end_date",
+    "location", "model_id", "target", "output_type_id", "value"
+  )
 
   load(test_path("testdata", "forecast_outputs.rda"))
   expected_forecast_outputs <- forecast_outputs %>%

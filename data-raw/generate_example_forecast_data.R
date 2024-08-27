@@ -17,28 +17,31 @@ create_forecast_outputs <- function() {
   d_keep <- c("2022-11-19", "2022-12-17")
   forecast_outputs <- hubData::connect_hub(hub_path, file_format = "parquet", skip_checks = TRUE) |>
     dplyr::filter(
-      location %in% l_keep,
-      output_type != "quantile" |
-        (output_type == "quantile" & output_type_id %in% q_lvls_keep),
-      reference_date %in% d_keep
+      .data[["location"]] %in% l_keep,
+      .data[["output_type"]] != "quantile" |
+        (.data[["output_type"]] == "quantile" & .data[["output_type_id"]] %in% q_lvls_keep),
+      .data[["reference_date"]] %in% d_keep
     ) |>
     hubData::collect_hub()
+  return(forecast_outputs)
 }
 
 create_forecast_target_ts <- function() {
   target_ts_data_path <- paste("target-data", "time-series.csv", sep = "/")
-  forecast_target_ts <- read_csv(
-    get_object(target_ts_data_path, bucket = s3_bucket_name),
+  forecast_target_ts <- readr::read_csv(
+    aws.s3::get_object(target_ts_data_path, bucket = s3_bucket_name),
     show_col_types = FALSE
   )
+  return(forecast_target_ts)
 }
 
 create_forecast_target_observations <- function() {
   target_observations_data_path <- paste("target-data", "target-observations.csv", sep = "/")
-  forecast_target_observations <- read_csv(
-    get_object(target_observations_data_path, bucket = s3_bucket_name),
+  forecast_target_observations <- readr::read_csv(
+    aws.s3::get_object(target_observations_data_path, bucket = s3_bucket_name),
     show_col_types = FALSE
   )
+  return(forecast_target_observations)
 }
 
 # Allow this script to be sourced without running the functions
