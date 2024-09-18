@@ -31,7 +31,7 @@ Our procedures for contributing bigger changes, code in particular, generally fo
 *  For user-facing changes, add a bullet to the top of `NEWS.md` (i.e. just below the first header). Follow the style described in <https://style.tidyverse.org/news.html>.
 
 *  If you're changing the scripts in `data-raw/`, you can run tests locally: `devtools::test()` (because the
-contents of `data-raw` are not included in the package, these tests are skipped during R checks).d
+contents of `data-raw` are not included in the package, these tests are skipped during R checks).
 
 ### Code style
 
