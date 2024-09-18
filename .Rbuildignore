@@ -1,3 +1,5 @@
+^renv$
+^renv\.lock$
 ^hubExamples\.Rproj$
 ^\.Rproj\.user$
 ^\.DS_Store$
@@ -13,3 +15,4 @@
 ^docs$
 ^pkgdown$
 ^data-raw$
+^\.pre-commit-config.yaml$
