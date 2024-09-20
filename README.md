@@ -10,19 +10,31 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![CRAN
 status](https://www.r-pkg.org/badges/version/hubExamples)](https://CRAN.R-project.org/package=hubExamples)
 [![R-CMD-check](https://github.com/hubverse-org/hubExamples/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/hubverse-org/hubExamples/actions/workflows/R-CMD-check.yaml)
+
 <!-- badges: end -->
 
 The goal of hubExamples is to provide example data for forecasting and
 scenario modeling hubs in the hubverse format.
 
-This package is part of the
-[hubverse](https://hubverse.io/en/latest/) ecosystem, which
-aims to provide a set of tools for infectious disease modeling hubs to
-share and collaborate on their work.
+This package is part of the [hubverse](https://hubverse.io/en/latest/)
+ecosystem, which aims to provide a set of tools for infectious disease
+modeling hubs to share and collaborate on their work.
 
 ## Installation
 
-You can install the development version of hubExamples from
+### Latest
+
+You can install the [latest version of hubExamples from the
+R-universe](https://hubverse-org.r-universe.dev/hubAdmin):
+
+``` r
+install.packages("hubExamples", repos = c("https://hubverse-org.r-universe.dev", "https://cloud.r-project.org"))
+```
+
+### Development
+
+If you want to test out new features that have not yet been released,
+you can install the development version of hubExamples from
 [GitHub](https://github.com/) with:
 
 ``` r
@@ -40,20 +52,20 @@ package documentation for further information about these data objects.
 ``` r
 library(hubExamples)
 head(forecast_outputs)
-#>            model_id location reference_date horizon target_end_date
-#> 1 Flusight-baseline       48     2022-12-17       0      2022-12-17
-#> 2 Flusight-baseline       48     2022-12-17       0      2022-12-17
-#> 3 Flusight-baseline       48     2022-12-17       0      2022-12-17
-#> 4 Flusight-baseline       48     2022-12-17       0      2022-12-17
-#> 5 Flusight-baseline       48     2022-12-17       0      2022-12-17
-#> 6 Flusight-baseline       48     2022-12-17       0      2022-12-17
-#>             target output_type output_type_id        value
-#> 1 wk flu hosp rate         cdf           0.25 7.592233e-13
-#> 2 wk flu hosp rate         cdf            0.5 4.736251e-12
-#> 3 wk flu hosp rate         cdf           0.75 2.767176e-11
-#> 4 wk flu hosp rate         cdf              1 1.514312e-10
-#> 5 wk flu hosp rate         cdf           1.25 7.762725e-10
-#> 6 wk flu hosp rate         cdf            1.5 3.728055e-09
+#>            model_id reference_date          target horizon location
+#> 1 Flusight-baseline     2022-11-19 wk inc flu hosp       0       25
+#> 2 Flusight-baseline     2022-11-19 wk inc flu hosp       0       25
+#> 3 Flusight-baseline     2022-11-19 wk inc flu hosp       0       25
+#> 4 Flusight-baseline     2022-11-19 wk inc flu hosp       0       25
+#> 5 Flusight-baseline     2022-11-19 wk inc flu hosp       0       25
+#> 6 Flusight-baseline     2022-11-19 wk inc flu hosp       0       25
+#>   target_end_date output_type output_type_id value
+#> 1      2022-11-19    quantile           0.05    22
+#> 2      2022-11-19    quantile            0.1    31
+#> 3      2022-11-19    quantile           0.25    45
+#> 4      2022-11-19    quantile            0.5    51
+#> 5      2022-11-19    quantile           0.75    57
+#> 6      2022-11-19    quantile            0.9    71
 head(forecast_target_ts)
 #>         date location observation
 #> 1 2020-01-11       01           0
@@ -124,6 +136,5 @@ project, you agree to abide by its terms.
 
 Interested in contributing back to the open-source Hubverse project?
 Learn more about how to [get involved in the Hubverse
-Community](https://hubverse.io/en/latest/overview/contribute.html)
-or [how to contribute to the hubExamples
-package](.github/CONTRIBUTING.md).
+Community](https://hubverse.io/en/latest/overview/contribute.html) or
+[how to contribute to the hubExamples package](.github/CONTRIBUTING.md).
