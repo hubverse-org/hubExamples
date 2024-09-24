@@ -25,7 +25,7 @@ modeling hubs to share and collaborate on their work.
 ### Latest
 
 You can install the [latest version of hubExamples from the
-R-universe](https://hubverse-org.r-universe.dev/hubAdmin):
+R-universe](https://hubverse-org.r-universe.dev/hubExamples):
 
 ``` r
 install.packages("hubExamples", repos = c("https://hubverse-org.r-universe.dev", "https://cloud.r-project.org"))
