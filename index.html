@@ -29,7 +29,7 @@
     <a href="https://hubdocs.readthedocs.io/en/latest/" class="external-link"><img src="https://raw.githubusercontent.com/hubverse-org/hubStyle/main/inst/hubverse.png" id="logo" height="30" alt="hubverse"></a>
     <a class="navbar-brand me-2" href="index.html">hubExamples</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">0.0.1</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,37 +66,49 @@
 </div>
 <!-- badges: start -->
 
+<!-- badges: end -->
 <p>The goal of hubExamples is to provide example data for forecasting and scenario modeling hubs in the hubverse format.</p>
 <p>This package is part of the <a href="https://hubverse.io/en/latest/" class="external-link">hubverse</a> ecosystem, which aims to provide a set of tools for infectious disease modeling hubs to share and collaborate on their work.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of hubExamples from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<div class="section level3">
+<h3 id="latest">Latest<a class="anchor" aria-label="anchor" href="#latest"></a>
+</h3>
+<p>You can install the <a href="https://hubverse-org.r-universe.dev/hubExamples" class="external-link">latest version of hubExamples from the R-universe</a>:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"hubExamples"</span>, repos <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"https://hubverse-org.r-universe.dev"</span>, <span class="st">"https://cloud.r-project.org"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="development">Development<a class="anchor" aria-label="anchor" href="#development"></a>
+</h3>
+<p>If you want to test out new features that have not yet been released, you can install the development version of hubExamples from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
-<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"hubverse-org/hubExamples"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"hubverse-org/hubExamples"</span><span class="op">)</span></span></code></pre></div>
+</div>
 </div>
 <div class="section level2">
 <h2 id="example-forecast-hub-data">Example forecast hub data<a class="anchor" aria-label="anchor" href="#example-forecast-hub-data"></a>
 </h2>
 <p>The package provides three data sets that contain example model output and target data for an example forecast hub: <code>forecast_outputs</code>, <code>forecast_target_ts</code>, and <code>forecast_target_observations</code>. Please see the package documentation for further information about these data objects.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/hubverse-org/hubExamples" class="external-link">hubExamples</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">forecast_outputs</span><span class="op">)</span></span>
-<span><span class="co">#&gt;            model_id location reference_date horizon target_end_date</span></span>
-<span><span class="co">#&gt; 1 Flusight-baseline       48     2022-12-17       0      2022-12-17</span></span>
-<span><span class="co">#&gt; 2 Flusight-baseline       48     2022-12-17       0      2022-12-17</span></span>
-<span><span class="co">#&gt; 3 Flusight-baseline       48     2022-12-17       0      2022-12-17</span></span>
-<span><span class="co">#&gt; 4 Flusight-baseline       48     2022-12-17       0      2022-12-17</span></span>
-<span><span class="co">#&gt; 5 Flusight-baseline       48     2022-12-17       0      2022-12-17</span></span>
-<span><span class="co">#&gt; 6 Flusight-baseline       48     2022-12-17       0      2022-12-17</span></span>
-<span><span class="co">#&gt;             target output_type output_type_id        value</span></span>
-<span><span class="co">#&gt; 1 wk flu hosp rate         cdf           0.25 7.592233e-13</span></span>
-<span><span class="co">#&gt; 2 wk flu hosp rate         cdf            0.5 4.736251e-12</span></span>
-<span><span class="co">#&gt; 3 wk flu hosp rate         cdf           0.75 2.767176e-11</span></span>
-<span><span class="co">#&gt; 4 wk flu hosp rate         cdf              1 1.514312e-10</span></span>
-<span><span class="co">#&gt; 5 wk flu hosp rate         cdf           1.25 7.762725e-10</span></span>
-<span><span class="co">#&gt; 6 wk flu hosp rate         cdf            1.5 3.728055e-09</span></span>
+<span><span class="co">#&gt;            model_id reference_date          target horizon location</span></span>
+<span><span class="co">#&gt; 1 Flusight-baseline     2022-11-19 wk inc flu hosp       0       25</span></span>
+<span><span class="co">#&gt; 2 Flusight-baseline     2022-11-19 wk inc flu hosp       0       25</span></span>
+<span><span class="co">#&gt; 3 Flusight-baseline     2022-11-19 wk inc flu hosp       0       25</span></span>
+<span><span class="co">#&gt; 4 Flusight-baseline     2022-11-19 wk inc flu hosp       0       25</span></span>
+<span><span class="co">#&gt; 5 Flusight-baseline     2022-11-19 wk inc flu hosp       0       25</span></span>
+<span><span class="co">#&gt; 6 Flusight-baseline     2022-11-19 wk inc flu hosp       0       25</span></span>
+<span><span class="co">#&gt;   target_end_date output_type output_type_id value</span></span>
+<span><span class="co">#&gt; 1      2022-11-19    quantile           0.05    22</span></span>
+<span><span class="co">#&gt; 2      2022-11-19    quantile            0.1    31</span></span>
+<span><span class="co">#&gt; 3      2022-11-19    quantile           0.25    45</span></span>
+<span><span class="co">#&gt; 4      2022-11-19    quantile            0.5    51</span></span>
+<span><span class="co">#&gt; 5      2022-11-19    quantile           0.75    57</span></span>
+<span><span class="co">#&gt; 6      2022-11-19    quantile            0.9    71</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">forecast_target_ts</span><span class="op">)</span></span>
 <span><span class="co">#&gt;         date location observation</span></span>
 <span><span class="co">#&gt; 1 2020-01-11       01           0</span></span>
@@ -125,7 +137,7 @@
 <h2 id="example-scenario-hub-data">Example scenario hub data<a class="anchor" aria-label="anchor" href="#example-scenario-hub-data"></a>
 </h2>
 <p>The package provides two data sets that contain example model output and target data for an example scenario hub: <code>scenario_outputs</code> and <code>scenario_target_ts</code>. Please see the package documentation for further information about these data objects.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">scenario_outputs</span><span class="op">)</span></span>
 <span><span class="co">#&gt;          model_id origin_date  scenario_id location   target horizon</span></span>
 <span><span class="co">#&gt; 1 HUBuni-simexamp  2021-03-07 A-2021-03-05       US inc case       1</span></span>
@@ -202,14 +214,7 @@
 </ul>
 </div>
 
-<div class="dev-status">
-<h2 data-toc-skip>Dev status</h2>
-<ul class="list-unstyled">
-<li><a href="https://lifecycle.r-lib.org/articles/stages.html#experimental" class="external-link"><img src="https://img.shields.io/badge/lifecycle-experimental-orange.svg" alt="Lifecycle: experimental"></a></li>
-<li><a href="https://CRAN.R-project.org/package=hubExamples" class="external-link"><img src="https://www.r-pkg.org/badges/version/hubExamples" alt="CRAN status"></a></li>
-<li><a href="https://github.com/hubverse-org/hubExamples/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/hubverse-org/hubExamples/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
-</ul>
-</div>
+
 
   </aside>
 </div>
