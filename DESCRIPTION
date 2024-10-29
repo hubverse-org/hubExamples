@@ -1,6 +1,6 @@
 Package: hubExamples
 Title: Example Hub Data
-Version: 0.0.1
+Version: 0.0.1.9000
 Authors@R: c(
     person(given = "Evan L",
            family = "Ray",
