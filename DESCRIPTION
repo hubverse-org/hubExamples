@@ -1,6 +1,6 @@
 Package: hubExamples
 Title: Example Hub Data
-Version: 0.0.1
+Version: 0.0.1.9000
 Authors@R: c(
     person(given = "Evan L",
            family = "Ray",
@@ -24,7 +24,7 @@ RoxygenNote: 7.3.2
 Suggests:
     dplyr,
     ggplot2,
-    hubVis,
+    hubVis (>= 0.1.0),
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)
