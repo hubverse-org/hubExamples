@@ -97,7 +97,7 @@ The `wk inc flu hosp` target represents weekly new hospital admissions with a co
 The following plot shows the quantile and median predictions along with the observed hospital admission counts for Massachusetts and Texas.
 ```{r}
 plot_step_ahead_model_output(
-  model_output_data = forecast_outputs |>
+  model_out_tbl = forecast_outputs |>
     filter(output_type %in% c("quantile", "median")),
   target_data = forecast_target_ts |>
     filter(location %in% c("25", "48"),
