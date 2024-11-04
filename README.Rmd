@@ -50,13 +50,13 @@ remotes::install_github("hubverse-org/hubExamples")
 
 The package provides three data sets that contain example model output and
 target data for an example forecast hub: `forecast_outputs`, `forecast_target_ts`, and
-`forecast_target_observations`.  Please see the package documentation for further information about these data objects.
+`forecast_oracle_output`.  Please see the package documentation for further information about these data objects.
 
 ```{r forecast_example}
 library(hubExamples)
 head(forecast_outputs)
 head(forecast_target_ts)
-head(forecast_target_observations)
+head(forecast_oracle_output)
 ```
 
 ## Example scenario hub data

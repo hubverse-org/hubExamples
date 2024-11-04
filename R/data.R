@@ -2,7 +2,7 @@
 #'
 #' The hubExamples package provides three data sets that contain example model output and
 #' target data for an example forecast hub: `forecast_outputs`, `forecast_target_ts`, and
-#' `forecast_target_observations`.
+#' `forecast_oracle_output`.
 #'
 #' @name forecast_data
 #' @source <https://github.com/hubverse-org/example-complex-forecast-hub/>
@@ -52,12 +52,12 @@ NULL
 #' @rdname forecast_data
 "forecast_target_ts"
 
-#' Forecast target observations
+#' Forecast oracle output
 #'
-#' `forecast_target_observations` contains target data that represents the source of "truth" that model output data
+#' `forecast_oracle_output` contains target data that represents the source of "truth" that model output data
 #' will be scored against. This example represents influenza-related targets.
 #'
-#' @format ## `forecast_target_observations`
+#' @format ## `forecast_oracle_output`
 #' A data frame with 198,485 rows and 6 columns:
 #' \describe{
 #'   \item{location}{FIPS code identifying a location}
@@ -70,10 +70,10 @@ NULL
 #'         as in the model output data, `output_type_id` is not relevant for `output_type`
 #'         of mean and median; target data that represents quantile `output_type` will
 #'         not have an `output_type_id`.}
-#'   \item{observation}{the observed value of the target}
+#'   \item{oracle_value}{the observed value of the target}
 #' }
 #' @rdname forecast_data
-"forecast_target_observations"
+"forecast_oracle_output"
 
 #' Example scenario hub data
 #'

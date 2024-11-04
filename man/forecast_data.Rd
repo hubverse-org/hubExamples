@@ -5,7 +5,7 @@
 \alias{forecast_data}
 \alias{forecast_outputs}
 \alias{forecast_target_ts}
-\alias{forecast_target_observations}
+\alias{forecast_oracle_output}
 \title{Example forecast hub data}
 \format{
 \subsection{\code{forecast_outputs}}{
@@ -40,7 +40,7 @@ in the week ending on the given \code{date}.}
 }
 }
 
-\subsection{\code{forecast_target_observations}}{
+\subsection{\code{forecast_oracle_output}}{
 
 A data frame with 198,485 rows and 6 columns:
 \describe{
@@ -54,7 +54,7 @@ submitted to the hub}
 as in the model output data, \code{output_type_id} is not relevant for \code{output_type}
 of mean and median; target data that represents quantile \code{output_type} will
 not have an \code{output_type_id}.}
-\item{observation}{the observed value of the target}
+\item{oracle_value}{the observed value of the target}
 }
 }
 }
@@ -66,12 +66,12 @@ forecast_outputs
 
 forecast_target_ts
 
-forecast_target_observations
+forecast_oracle_output
 }
 \description{
 The hubExamples package provides three data sets that contain example model output and
 target data for an example forecast hub: \code{forecast_outputs}, \code{forecast_target_ts}, and
-\code{forecast_target_observations}.
+\code{forecast_oracle_output}.
 
 \code{forecast_outputs} contains example forecast data that represents model outputs from a forecast hub
 with predictions for three influenza-related targets (wk inc flu hosp, wk flu hops rate category,
@@ -81,7 +81,7 @@ when originally submitted by modelers).
 
 \code{forecast_target_ts} contains time series target data from a hub that predicts influenza-related targets.
 
-\code{forecast_target_observations} contains target data that represents the source of "truth" that model output data
+\code{forecast_oracle_output} contains target data that represents the source of "truth" that model output data
 will be scored against. This example represents influenza-related targets.
 }
 \keyword{datasets}
