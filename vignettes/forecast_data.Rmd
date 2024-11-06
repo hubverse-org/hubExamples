@@ -29,7 +29,7 @@ library(ggplot2)
 
 The `hubExamples` package provides three data sets that contain example model output and
 target data for an example forecast hub: `forecast_outputs`, `forecast_target_ts`, and
-`forecast_target_observations`. These forecasts and target data are a subset of the model outputs and target data that are provided in the [example-complex-forecast-hub](https://github.com/hubverse-org/example-complex-forecast-hub). These data were in turn derived from forecast submissions and target data for the [FluSight Forecast Hub](https://github.com/cdcepi/Flusight-forecast-data) for the 2022/23 season.
+`forecast_oracle_output`. These forecasts and target data are a subset of the model outputs and target data that are provided in the [example-complex-forecast-hub](https://github.com/hubverse-org/example-complex-forecast-hub). These data were in turn derived from forecast submissions and target data for the [FluSight Forecast Hub](https://github.com/cdcepi/Flusight-forecast-data) for the 2022/23 season.
 
 We begin with a high level overview of these data objects and then we describe the different forecast targets in more detail.
 
@@ -70,13 +70,13 @@ head(forecast_target_ts)
 tail(forecast_target_ts)
 ```
 
-The `forecast_target_observations` object contains the observed values for the prediction targets:
+The `forecast_oracle_output` object contains the observed values for the prediction targets:
 
 ```{r}
-head(forecast_target_observations)
+head(forecast_oracle_output)
 ```
 
-This data frame has a subset of the columns in the `forecast_outputs` that is sufficient to identify the observed value corresponding to each prediction, including the `location`, `target_end_date`, `target`, `output_type`, and `output_type_id`, along with the observed target values, recorded in the `observation` column. Note that the `reference_date` and `horizon` columns are not needed in this data frame, since the `target_end_date` is sufficient to align observations with predictions.
+This data frame has a subset of the columns in the `forecast_outputs` that is sufficient to identify the observed value corresponding to each prediction, including the `location`, `target_end_date`, `target`, `output_type`, and `output_type_id`, along with the observed target values, recorded in the `oracle_value` column. Note that the `reference_date` and `horizon` columns are not needed in this data frame, since the `target_end_date` is sufficient to align observations with predictions.
 
 # Further detail on the forecast targets
 
@@ -136,12 +136,12 @@ ggplot() +
   theme_bw()
 ```
 
-For purposes of evaluating predictions, it can be helpful to join the observed target values, contained in `forecast_target_observations`, into the data frame of forecast outputs. This enables direct comparison of predictions and observations. We illustrate this here, omitting some columns from the display for convenience:
+For purposes of evaluating predictions, it can be helpful to join the observed target values, contained in `forecast_oracle_output`, into the data frame of forecast outputs. This enables direct comparison of predictions and observations. We illustrate this here, omitting some columns from the display for convenience:
 
 ```{r}
 forecast_outputs |>
   filter(target == "wk inc flu hosp") |>
-  left_join(forecast_target_observations) |>
+  left_join(forecast_oracle_output) |>
   select(-model_id, -reference_date, -horizon)
 ```
 
@@ -163,7 +163,7 @@ For the CDF `output_type`, the `output_type_id` contains the value at which the 
 The following plot illustrates the predictive CDFs produced by the `MOBS-GLEAM_FLUH` model for Massachusetts on the reference date 2022-12-17, with each `target_end_date` shown in a separate facet.  Also shown in orange is a CDF representing the observation for this target, which was between 9.75 and 10 hospitalizations per 100,000 population.  This CDF corresponds to a point mass at the observed value, with a value of 0 below the observation and a value of 1 above the observation.
 
 ```{r}
-# Subset the forecasts and observations to those that we will plot
+# Subset the forecasts and oracle values to those that we will plot
 forecasts_to_plot <- forecast_outputs |>
   filter(
     model_id == "MOBS-GLEAM_FLUH",
@@ -174,19 +174,19 @@ forecasts_to_plot <- forecast_outputs |>
   mutate(output_type_id = as.numeric(output_type_id))
 head(forecasts_to_plot)
 
-target_observations_to_plot <- forecast_target_observations |>
+oracle_outputs_to_plot <- forecast_oracle_output |>
   filter(
     target == "wk flu hosp rate",
     location == "25",
     target_end_date %in% forecasts_to_plot$target_end_date
   ) |>
   mutate(output_type_id = as.numeric(output_type_id))
-head(target_observations_to_plot)
+head(oracle_outputs_to_plot)
 
-# We illustrate that the cdf values recorded in forecast_target_observations
+# We illustrate that the cdf values recorded in forecast_oracle_output
 # correspond to a point mass at the observed hospitalization rate.
-first_one_ind <- min(which(target_observations_to_plot$observation == 1))
-target_observations_to_plot[(first_one_ind - 2):(first_one_ind + 2), ]
+first_one_ind <- min(which(oracle_outputs_to_plot$oracle_value == 1))
+oracle_outputs_to_plot[(first_one_ind - 2):(first_one_ind + 2), ]
 
 # Make the plot
 ggplot() +
@@ -196,9 +196,9 @@ ggplot() +
     data = forecasts_to_plot
   ) +
   geom_line(
-    mapping = aes(x = output_type_id, y = observation,
-                  color = "observation", linetype = "observation"),
-    data = target_observations_to_plot,
+    mapping = aes(x = output_type_id, y = oracle_value,
+                  color = "oracle_value", linetype = "oracle_value"),
+    data = oracle_outputs_to_plot,
   ) +
   scale_color_manual(
     "CDF",
@@ -246,7 +246,7 @@ ggplot() +
   facet_wrap(vars(location))
 ```
 
-Here is a plot showing the predictive distributions for these targets from the three included models.  Color indicates the predicted probability for each intensity category.  The observed category is indicated with a `+` in the plot, while unobserved categories are indicated with an `o`.  Here, the PMF value recorded in `forecast_target_observations` corresponds to a point mass at the observed category, with a value of 1 for the observed category and a value of 0 for the other categories.
+Here is a plot showing the predictive distributions for these targets from the three included models.  Color indicates the predicted probability for each intensity category.  The observed category is indicated with a `+` in the plot, while unobserved categories are indicated with an `o`.  Here, the PMF value recorded in `forecast_oracle_output` corresponds to a point mass at the observed category, with a value of 1 for the observed category and a value of 0 for the other categories.
 
 ```{r}
 # extract a subset of forecasts to plot and
@@ -265,8 +265,8 @@ forecasts_to_plot |>
   select(-model_id, -reference_date, -horizon) |>
   head()
 
-# extract the corresponding observations
-observations_to_plot <- forecast_target_observations |>
+# extract the corresponding oracle values
+oracle_outputs_to_plot <- forecast_oracle_output |>
   filter(
     location %in% c("25", "48"),
     target == "wk flu hosp rate category",
@@ -277,10 +277,10 @@ observations_to_plot <- forecast_target_observations |>
                             levels = c("low", "moderate", "high", "very high"),
                             ordered = TRUE)
   )
-observations_to_plot |>
+oracle_outputs_to_plot |>
   head()
 
-# plot the predictions and observations
+# plot the predictions and oracle values
 ggplot() +
   geom_raster(
     mapping = aes(x = target_end_date, y = output_type_id, fill = value),
@@ -292,10 +292,10 @@ ggplot() +
   ) +
   geom_point(
     mapping = aes(x = target_end_date, y = output_type_id,
-                  shape = factor(observation)),
+                  shape = factor(oracle_value)),
     color = "#888888",
     size = 3, stroke = 2,
-    data = observations_to_plot,
+    data = oracle_outputs_to_plot,
   ) +
   scale_shape_manual(
     values = c(1, 3),

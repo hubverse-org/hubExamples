@@ -35,13 +35,13 @@ create_forecast_target_ts <- function() {
   return(forecast_target_ts)
 }
 
-create_forecast_target_observations <- function() {
-  target_observations_data_path <- paste("target-data", "target-observations.csv", sep = "/")
-  forecast_target_observations <- readr::read_csv(
-    aws.s3::get_object(target_observations_data_path, bucket = s3_bucket_name),
+create_forecast_oracle_output <- function() {
+  target_oracle_output_data_path <- paste("target-data", "oracle-output.csv", sep = "/")
+  forecast_oracle_output <- readr::read_csv(
+    aws.s3::get_object(target_oracle_output_data_path, bucket = s3_bucket_name),
     show_col_types = FALSE
   )
-  return(forecast_target_observations)
+  return(forecast_oracle_output)
 }
 
 # Allow this script to be sourced without running the functions
@@ -53,6 +53,6 @@ if (sys.nframe() == 0) {
   forecast_target_ts <- create_forecast_target_ts()
   usethis::use_data(forecast_target_ts, overwrite = TRUE)
 
-  forecast_target_observations <- create_forecast_target_observations()
-  usethis::use_data(forecast_target_observations, overwrite = TRUE)
+  forecast_oracle_output <- create_forecast_oracle_output()
+  usethis::use_data(forecast_oracle_output, overwrite = TRUE)
 }

@@ -31,21 +31,21 @@ test_that("forecast_outputs dataset is generated correctly", {
 })
 
 
-test_that("forecast_target_observations dataset is generated correctly", {
-  cols <- c("location", "target_end_date", "target", "output_type", "output_type_id", "observation")
+test_that("forecast_oracle_output dataset is generated correctly", {
+  cols <- c("location", "target_end_date", "target", "output_type", "output_type_id", "oracle_value")
 
-  load(test_path("testdata", "forecast_target_observations.rda"))
-  expected_forecast_target_observations <- forecast_target_observations %>%
+  load(test_path("testdata", "forecast_oracle_output.rda"))
+  expected_forecast_oracle_output <- forecast_oracle_output %>%
     arrange_at(cols) %>%
     select(all_of(cols))
 
-  actual_forecast_target_observations <- create_forecast_target_observations() %>%
+  actual_forecast_oracle_output <- create_forecast_oracle_output() %>%
     arrange_at(cols) %>%
     select(all_of(cols))
 
   expect_equal(
-    as.data.frame(expected_forecast_target_observations),
-    as.data.frame(actual_forecast_target_observations)
+    as.data.frame(expected_forecast_oracle_output),
+    as.data.frame(actual_forecast_oracle_output)
   )
 })
 
