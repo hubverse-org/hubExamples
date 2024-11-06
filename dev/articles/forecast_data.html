@@ -89,9 +89,9 @@
 <p>The <code>hubExamples</code> package provides three data sets that
 contain example model output and target data for an example forecast
 hub: <code>forecast_outputs</code>, <code>forecast_target_ts</code>, and
-<code>forecast_target_observations</code>. These forecasts and target
-data are a subset of the model outputs and target data that are provided
-in the <a href="https://github.com/hubverse-org/example-complex-forecast-hub" class="external-link">example-complex-forecast-hub</a>.
+<code>forecast_oracle_output</code>. These forecasts and target data are
+a subset of the model outputs and target data that are provided in the
+<a href="https://github.com/hubverse-org/example-complex-forecast-hub" class="external-link">example-complex-forecast-hub</a>.
 These data were in turn derived from forecast submissions and target
 data for the <a href="https://github.com/cdcepi/Flusight-forecast-data" class="external-link">FluSight
 Forecast Hub</a> for the 2022/23 season.</p>
@@ -215,26 +215,26 @@ values of these hospital admissions in a time series format:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 2023-11-11 55                19</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 2023-11-11 54                12</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 2023-11-11 56                 7</span></span></code></pre></div>
-<p>The <code>forecast_target_observations</code> object contains the
-observed values for the prediction targets:</p>
+<p>The <code>forecast_oracle_output</code> object contains the observed
+values for the prediction targets:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">forecast_target_observations</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">forecast_oracle_output</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 6</span></span></span>
-<span><span class="co">#&gt;   location target_end_date target          output_type output_type_id observation</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> US       2022-10-22      wk inc flu hosp quantile    <span style="color: #BB0000;">NA</span>                    <span style="text-decoration: underline;">2</span>380</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 01       2022-10-22      wk inc flu hosp quantile    <span style="color: #BB0000;">NA</span>                     141</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 02       2022-10-22      wk inc flu hosp quantile    <span style="color: #BB0000;">NA</span>                       3</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 04       2022-10-22      wk inc flu hosp quantile    <span style="color: #BB0000;">NA</span>                      22</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 05       2022-10-22      wk inc flu hosp quantile    <span style="color: #BB0000;">NA</span>                      50</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 06       2022-10-22      wk inc flu hosp quantile    <span style="color: #BB0000;">NA</span>                     124</span></span></code></pre></div>
+<span><span class="co">#&gt;   location target_end_date target          output_type output_type_id oracle_value</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> US       2022-10-22      wk inc flu hosp quantile    <span style="color: #BB0000;">NA</span>                     <span style="text-decoration: underline;">2</span>380</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 01       2022-10-22      wk inc flu hosp quantile    <span style="color: #BB0000;">NA</span>                      141</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 02       2022-10-22      wk inc flu hosp quantile    <span style="color: #BB0000;">NA</span>                        3</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 04       2022-10-22      wk inc flu hosp quantile    <span style="color: #BB0000;">NA</span>                       22</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 05       2022-10-22      wk inc flu hosp quantile    <span style="color: #BB0000;">NA</span>                       50</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 06       2022-10-22      wk inc flu hosp quantile    <span style="color: #BB0000;">NA</span>                      124</span></span></code></pre></div>
 <p>This data frame has a subset of the columns in the
 <code>forecast_outputs</code> that is sufficient to identify the
 observed value corresponding to each prediction, including the
 <code>location</code>, <code>target_end_date</code>,
 <code>target</code>, <code>output_type</code>, and
 <code>output_type_id</code>, along with the observed target values,
-recorded in the <code>observation</code> column. Note that the
+recorded in the <code>oracle_value</code> column. Note that the
 <code>reference_date</code> and <code>horizon</code> columns are not
 needed in this data frame, since the <code>target_end_date</code> is
 sufficient to align observations with predictions.</p>
@@ -323,29 +323,29 @@ generated by the “MOBS-GLEAM_FLUH” model.</p>
 <p><img src="forecast_data_files/figure-html/unnamed-chunk-7-1.png" width="768" style="display: block; margin: auto;"></p>
 <p>For purposes of evaluating predictions, it can be helpful to join the
 observed target values, contained in
-<code>forecast_target_observations</code>, into the data frame of
-forecast outputs. This enables direct comparison of predictions and
-observations. We illustrate this here, omitting some columns from the
-display for convenience:</p>
+<code>forecast_oracle_output</code>, into the data frame of forecast
+outputs. This enables direct comparison of predictions and observations.
+We illustrate this here, omitting some columns from the display for
+convenience:</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">forecast_outputs</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">target</span> <span class="op">==</span> <span class="st">"wk inc flu hosp"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">forecast_target_observations</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">forecast_oracle_output</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">model_id</span>, <span class="op">-</span><span class="va">reference_date</span>, <span class="op">-</span><span class="va">horizon</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Joining with `by = join_by(target, location, target_end_date, output_type, output_type_id)`</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5,232 × 7</span></span></span>
-<span><span class="co">#&gt;    target          location target_end_date output_type output_type_id value observation</span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> wk inc flu hosp 25       2022-11-19      quantile    0.05              22          <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> wk inc flu hosp 25       2022-11-19      quantile    0.1               31          <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> wk inc flu hosp 25       2022-11-19      quantile    0.25              45          <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> wk inc flu hosp 25       2022-11-19      quantile    0.5               51          <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> wk inc flu hosp 25       2022-11-19      quantile    0.75              57          <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> wk inc flu hosp 25       2022-11-19      quantile    0.9               71          <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> wk inc flu hosp 25       2022-11-19      quantile    0.95              80          <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> wk inc flu hosp 25       2022-11-26      quantile    0.05               5          <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> wk inc flu hosp 25       2022-11-26      quantile    0.1               21          <span style="color: #BB0000;">NA</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> wk inc flu hosp 25       2022-11-26      quantile    0.25              38          <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt;    target          location target_end_date output_type output_type_id value oracle_value</span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> wk inc flu hosp 25       2022-11-19      quantile    0.05              22           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> wk inc flu hosp 25       2022-11-19      quantile    0.1               31           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> wk inc flu hosp 25       2022-11-19      quantile    0.25              45           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> wk inc flu hosp 25       2022-11-19      quantile    0.5               51           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> wk inc flu hosp 25       2022-11-19      quantile    0.75              57           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> wk inc flu hosp 25       2022-11-19      quantile    0.9               71           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> wk inc flu hosp 25       2022-11-19      quantile    0.95              80           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> wk inc flu hosp 25       2022-11-26      quantile    0.05               5           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> wk inc flu hosp 25       2022-11-26      quantile    0.1               21           <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> wk inc flu hosp 25       2022-11-26      quantile    0.25              38           <span style="color: #BB0000;">NA</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 5,222 more rows</span></span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -396,7 +396,7 @@ hospitalizations per 100,000 population. This CDF corresponds to a point
 mass at the observed value, with a value of 0 below the observation and
 a value of 1 above the observation.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Subset the forecasts and observations to those that we will plot</span></span>
+<code class="sourceCode R"><span><span class="co"># Subset the forecasts and oracle values to those that we will plot</span></span>
 <span><span class="va">forecasts_to_plot</span> <span class="op">&lt;-</span> <span class="va">forecast_outputs</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
 <span>    <span class="va">model_id</span> <span class="op">==</span> <span class="st">"MOBS-GLEAM_FLUH"</span>,</span>
@@ -416,36 +416,36 @@ a value of 1 above the observation.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> MOBS-GLEAM_FLUH 2022-12-17     wk flu hosp rate       0 25       2022-12-17      cdf                   1.25 6.17<span style="color: #949494;">e</span><span style="color: #BB0000;">-16</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> MOBS-GLEAM_FLUH 2022-12-17     wk flu hosp rate       0 25       2022-12-17      cdf                   1.5  7.87<span style="color: #949494;">e</span><span style="color: #BB0000;">-15</span></span></span>
 <span></span>
-<span><span class="va">target_observations_to_plot</span> <span class="op">&lt;-</span> <span class="va">forecast_target_observations</span> <span class="op">|&gt;</span></span>
+<span><span class="va">oracle_outputs_to_plot</span> <span class="op">&lt;-</span> <span class="va">forecast_oracle_output</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
 <span>    <span class="va">target</span> <span class="op">==</span> <span class="st">"wk flu hosp rate"</span>,</span>
 <span>    <span class="va">location</span> <span class="op">==</span> <span class="st">"25"</span>,</span>
 <span>    <span class="va">target_end_date</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="va">forecasts_to_plot</span><span class="op">$</span><span class="va">target_end_date</span></span>
 <span>  <span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>output_type_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/numeric.html" class="external-link">as.numeric</a></span><span class="op">(</span><span class="va">output_type_id</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">target_observations_to_plot</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">oracle_outputs_to_plot</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 6</span></span></span>
-<span><span class="co">#&gt;   location target_end_date target           output_type output_type_id observation</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 25       2022-12-17      wk flu hosp rate cdf                   0.25           0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 25       2022-12-17      wk flu hosp rate cdf                   0.5            0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 25       2022-12-17      wk flu hosp rate cdf                   0.75           0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 25       2022-12-17      wk flu hosp rate cdf                   1              0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 25       2022-12-17      wk flu hosp rate cdf                   1.25           0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 25       2022-12-17      wk flu hosp rate cdf                   1.5            0</span></span>
+<span><span class="co">#&gt;   location target_end_date target           output_type output_type_id oracle_value</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 25       2022-12-17      wk flu hosp rate cdf                   0.25            0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 25       2022-12-17      wk flu hosp rate cdf                   0.5             0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 25       2022-12-17      wk flu hosp rate cdf                   0.75            0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 25       2022-12-17      wk flu hosp rate cdf                   1               0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 25       2022-12-17      wk flu hosp rate cdf                   1.25            0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 25       2022-12-17      wk flu hosp rate cdf                   1.5             0</span></span>
 <span></span>
-<span><span class="co"># We illustrate that the cdf values recorded in forecast_target_observations</span></span>
+<span><span class="co"># We illustrate that the cdf values recorded in forecast_oracle_output</span></span>
 <span><span class="co"># correspond to a point mass at the observed hospitalization rate.</span></span>
-<span><span class="va">first_one_ind</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">target_observations_to_plot</span><span class="op">$</span><span class="va">observation</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="va">target_observations_to_plot</span><span class="op">[</span><span class="op">(</span><span class="va">first_one_ind</span> <span class="op">-</span> <span class="fl">2</span><span class="op">)</span><span class="op">:</span><span class="op">(</span><span class="va">first_one_ind</span> <span class="op">+</span> <span class="fl">2</span><span class="op">)</span>, <span class="op">]</span></span>
+<span><span class="va">first_one_ind</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/Extremes.html" class="external-link">min</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/which.html" class="external-link">which</a></span><span class="op">(</span><span class="va">oracle_outputs_to_plot</span><span class="op">$</span><span class="va">oracle_value</span> <span class="op">==</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
+<span><span class="va">oracle_outputs_to_plot</span><span class="op">[</span><span class="op">(</span><span class="va">first_one_ind</span> <span class="op">-</span> <span class="fl">2</span><span class="op">)</span><span class="op">:</span><span class="op">(</span><span class="va">first_one_ind</span> <span class="op">+</span> <span class="fl">2</span><span class="op">)</span>, <span class="op">]</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 5 × 6</span></span></span>
-<span><span class="co">#&gt;   location target_end_date target           output_type output_type_id observation</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 25       2022-12-17      wk flu hosp rate cdf                   9.5            0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 25       2022-12-17      wk flu hosp rate cdf                   9.75           0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 25       2022-12-17      wk flu hosp rate cdf                  10              1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 25       2022-12-17      wk flu hosp rate cdf                  10.2            1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 25       2022-12-17      wk flu hosp rate cdf                  10.5            1</span></span>
+<span><span class="co">#&gt;   location target_end_date target           output_type output_type_id oracle_value</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 25       2022-12-17      wk flu hosp rate cdf                   9.5             0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 25       2022-12-17      wk flu hosp rate cdf                   9.75            0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 25       2022-12-17      wk flu hosp rate cdf                  10               1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 25       2022-12-17      wk flu hosp rate cdf                  10.2             1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 25       2022-12-17      wk flu hosp rate cdf                  10.5             1</span></span>
 <span></span>
 <span><span class="co"># Make the plot</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -455,9 +455,9 @@ a value of 1 above the observation.</p>
 <span>    data <span class="op">=</span> <span class="va">forecasts_to_plot</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span></span>
-<span>    mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">output_type_id</span>, y <span class="op">=</span> <span class="va">observation</span>,</span>
-<span>                  color <span class="op">=</span> <span class="st">"observation"</span>, linetype <span class="op">=</span> <span class="st">"observation"</span><span class="op">)</span>,</span>
-<span>    data <span class="op">=</span> <span class="va">target_observations_to_plot</span>,</span>
+<span>    mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">output_type_id</span>, y <span class="op">=</span> <span class="va">oracle_value</span>,</span>
+<span>                  color <span class="op">=</span> <span class="st">"oracle_value"</span>, linetype <span class="op">=</span> <span class="st">"oracle_value"</span><span class="op">)</span>,</span>
+<span>    data <span class="op">=</span> <span class="va">oracle_outputs_to_plot</span>,</span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_color_manual</a></span><span class="op">(</span></span>
 <span>    <span class="st">"CDF"</span>,</span>
@@ -526,8 +526,8 @@ from the three included models. Color indicates the predicted
 probability for each intensity category. The observed category is
 indicated with a <code>+</code> in the plot, while unobserved categories
 are indicated with an <code>o</code>. Here, the PMF value recorded in
-<code>forecast_target_observations</code> corresponds to a point mass at
-the observed category, with a value of 1 for the observed category and a
+<code>forecast_oracle_output</code> corresponds to a point mass at the
+observed category, with a value of 1 for the observed category and a
 value of 0 for the other categories.</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># extract a subset of forecasts to plot and</span></span>
@@ -555,8 +555,8 @@ value of 0 for the other categories.</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> wk flu hosp rate category 25       2022-12-24      pmf         low            0.000<span style="text-decoration: underline;">009</span>70</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> wk flu hosp rate category 25       2022-12-24      pmf         moderate       0.002<span style="text-decoration: underline;">94</span></span></span>
 <span></span>
-<span><span class="co"># extract the corresponding observations</span></span>
-<span><span class="va">observations_to_plot</span> <span class="op">&lt;-</span> <span class="va">forecast_target_observations</span> <span class="op">|&gt;</span></span>
+<span><span class="co"># extract the corresponding oracle values</span></span>
+<span><span class="va">oracle_outputs_to_plot</span> <span class="op">&lt;-</span> <span class="va">forecast_oracle_output</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span></span>
 <span>    <span class="va">location</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"25"</span>, <span class="st">"48"</span><span class="op">)</span>,</span>
 <span>    <span class="va">target</span> <span class="op">==</span> <span class="st">"wk flu hosp rate category"</span>,</span>
@@ -567,19 +567,19 @@ value of 0 for the other categories.</p>
 <span>                            levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"low"</span>, <span class="st">"moderate"</span>, <span class="st">"high"</span>, <span class="st">"very high"</span><span class="op">)</span>,</span>
 <span>                            ordered <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
-<span><span class="va">observations_to_plot</span> <span class="op">|&gt;</span></span>
+<span><span class="va">oracle_outputs_to_plot</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 6</span></span></span>
-<span><span class="co">#&gt;   location target_end_date target                    output_type output_type_id observation</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;ord&gt;</span>                <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 25       2022-12-17      wk flu hosp rate category pmf         low                      0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 25       2022-12-17      wk flu hosp rate category pmf         moderate                 0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 25       2022-12-17      wk flu hosp rate category pmf         high                     0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 25       2022-12-17      wk flu hosp rate category pmf         very high                1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 48       2022-12-17      wk flu hosp rate category pmf         low                      0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 48       2022-12-17      wk flu hosp rate category pmf         moderate                 1</span></span>
+<span><span class="co">#&gt;   location target_end_date target                    output_type output_type_id oracle_value</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;ord&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 25       2022-12-17      wk flu hosp rate category pmf         low                       0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 25       2022-12-17      wk flu hosp rate category pmf         moderate                  0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 25       2022-12-17      wk flu hosp rate category pmf         high                      0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 25       2022-12-17      wk flu hosp rate category pmf         very high                 1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 48       2022-12-17      wk flu hosp rate category pmf         low                       0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 48       2022-12-17      wk flu hosp rate category pmf         moderate                  1</span></span>
 <span></span>
-<span><span class="co"># plot the predictions and observations</span></span>
+<span><span class="co"># plot the predictions and oracle values</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_tile.html" class="external-link">geom_raster</a></span><span class="op">(</span></span>
 <span>    mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">target_end_date</span>, y <span class="op">=</span> <span class="va">output_type_id</span>, fill <span class="op">=</span> <span class="va">value</span><span class="op">)</span>,</span>
@@ -591,10 +591,10 @@ value of 0 for the other categories.</p>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_point.html" class="external-link">geom_point</a></span><span class="op">(</span></span>
 <span>    mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">target_end_date</span>, y <span class="op">=</span> <span class="va">output_type_id</span>,</span>
-<span>                  shape <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">observation</span><span class="op">)</span><span class="op">)</span>,</span>
+<span>                  shape <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html" class="external-link">factor</a></span><span class="op">(</span><span class="va">oracle_value</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>    color <span class="op">=</span> <span class="st">"#888888"</span>,</span>
 <span>    size <span class="op">=</span> <span class="fl">3</span>, stroke <span class="op">=</span> <span class="fl">2</span>,</span>
-<span>    data <span class="op">=</span> <span class="va">observations_to_plot</span>,</span>
+<span>    data <span class="op">=</span> <span class="va">oracle_outputs_to_plot</span>,</span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html" class="external-link">scale_shape_manual</a></span><span class="op">(</span></span>
 <span>    values <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">3</span><span class="op">)</span>,</span>
