@@ -1,3 +1,5 @@
+# hubExamples (development version)
+
 # hubExamples 0.1.0
 
 * Soft dependency hubVis version bumped to 0.1.0 or greater
