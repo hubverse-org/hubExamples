@@ -15,7 +15,7 @@ create_forecast_outputs <- function() {
   l_keep <- c("25", "48")
   q_lvls_keep <- c("0.05", "0.1", "0.25", "0.5", "0.75", "0.9", "0.95")
   d_keep <- c("2022-11-19", "2022-12-17")
-  forecast_outputs <- hubData::connect_hub(hub_path, file_format = "parquet", skip_checks = TRUE) |>
+  hubData::connect_hub(hub_path, file_format = "parquet", skip_checks = TRUE) |>
     dplyr::filter(
       .data[["location"]] %in% l_keep,
       .data[["output_type"]] != "quantile" |
@@ -23,25 +23,22 @@ create_forecast_outputs <- function() {
       .data[["reference_date"]] %in% d_keep
     ) |>
     hubData::collect_hub()
-  return(forecast_outputs)
 }
 
 create_forecast_target_ts <- function() {
   target_ts_data_path <- paste("target-data", "time-series.csv", sep = "/")
-  forecast_target_ts <- readr::read_csv(
+  readr::read_csv(
     aws.s3::get_object(target_ts_data_path, bucket = s3_bucket_name),
     show_col_types = FALSE
   )
-  return(forecast_target_ts)
 }
 
 create_forecast_oracle_output <- function() {
   target_oracle_output_data_path <- paste("target-data", "oracle-output.csv", sep = "/")
-  forecast_oracle_output <- readr::read_csv(
+  readr::read_csv(
     aws.s3::get_object(target_oracle_output_data_path, bucket = s3_bucket_name),
     show_col_types = FALSE
   )
-  return(forecast_oracle_output)
 }
 
 # Allow this script to be sourced without running the functions
