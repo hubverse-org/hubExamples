@@ -6,12 +6,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Example forecast hub data • hubExamples</title>
-<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
-<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
-<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
-<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
-<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
+<!-- favicons --><link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
+<link rel="icon" type="”image/svg+xml”" href="../favicon.svg">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="icon" sizes="any" href="../favicon.ico">
+<link rel="manifest" href="../site.webmanifest">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
@@ -125,7 +124,7 @@ see all data frame columns).</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> Flusight-baseline 2022-11-19     wk inc flu hosp       0 25       2022-11-19      quantile    0.5               51</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> Flusight-baseline 2022-11-19     wk inc flu hosp       0 25       2022-11-19      quantile    0.75              57</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> Flusight-baseline 2022-11-19     wk inc flu hosp       0 25       2022-11-19      quantile    0.9               71</span></span></code></pre></div>
-<p>This is a data frame with four groups of columns (see the <a href="https://hubverse.io/en/latest/user-guide/model-output.html" class="external-link">hubverse
+<p>This is a data frame with four groups of columns (see the <a href="https://docs.hubverse.io/en/latest/user-guide/model-output.html" class="external-link">hubverse
 documentation</a> for more information about these data formats):</p>
 <ol style="list-style-type: decimal">
 <li>The <code>model_id</code> identifies the model that produced the
@@ -184,7 +183,7 @@ locations other than US states would use a different location identifier
 than FIPS codes, and a hub might introduce additional task id variables
 such as an identifier of age group or disease variant depending on the
 goals of the hub. See the hubverse documentation for further information
-about <a href="https://hubverse.io/en/latest/user-guide/tasks.html#task-id-variables" class="external-link">task
+about <a href="https://docs.hubverse.io/en/latest/user-guide/tasks.html#task-id-variables" class="external-link">task
 id variables</a>.</p>
 </div>
 <div class="section level3">
@@ -215,7 +214,7 @@ values of these hospital admissions in a time series format:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 2023-11-11 55                19</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 2023-11-11 54                12</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 2023-11-11 56                 7</span></span></code></pre></div>
-<p>See the hubverse documentation for further information about <a href="https://hubverse.io/en/latest/user-guide/target-data.html#time-series" class="external-link">time
+<p>See the hubverse documentation for further information about <a href="https://docs.hubverse.io/en/latest/user-guide/target-data.html#time-series" class="external-link">time
 series target data</a>.</p>
 </div>
 <div class="section level3">
@@ -247,7 +246,7 @@ model, recorded in the <code>oracle_value</code> column. Note that the
 <code>reference_date</code> and <code>horizon</code> columns are not
 needed in this data frame, since the <code>target_end_date</code> is
 sufficient to align observations with predictions. See the hubverse
-documentation for further information about <a href="https://hubverse.io/en/latest/user-guide/target-data.html#oracle-output" class="external-link">oracle
+documentation for further information about <a href="https://docs.hubverse.io/en/latest/user-guide/target-data.html#oracle-output" class="external-link">oracle
 output data</a>.</p>
 </div>
 </div>
@@ -627,7 +626,7 @@ value of 0 for the other categories.</p>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1. PR Previews built by <a href="https://www.netlify.com" class="external-link">Netlify</a>. Provided without <strong>any warranty</strong>.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.2. PR Previews built by <a href="https://www.netlify.com" class="external-link">Netlify</a>. Provided without <strong>any warranty</strong>.</p>
 </div>
 
     </footer>
