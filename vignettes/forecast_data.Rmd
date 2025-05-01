@@ -43,7 +43,7 @@ The snippet below shows the format of the `forecast_outputs` (note: here and thr
 head(forecast_outputs)
 ```
 
-This is a data frame with four groups of columns (see the [hubverse documentation](https://hubverse.io/en/latest/user-guide/model-output.html) for more information about these data formats):
+This is a data frame with four groups of columns (see the [hubverse documentation](https://docs.hubverse.io/en/latest/user-guide/model-output.html) for more information about these data formats):
 
 1. The `model_id` identifies the model that produced the predictions.
 2. Together, the `location`, `reference_date`, `horizon`, `target_end_date`, and `target` columns are referred to as "task id variables" because they serve to identify a prediction task:
@@ -59,7 +59,7 @@ This is a data frame with four groups of columns (see the [hubverse documentatio
 
 The original hub submissions contained predictions for many locations and dates, and quantile forecasts were provided at 23 different quantile levels ranging from 0.01 to 0.99.  To make the example data more manageable, the `forecast_outputs` object contains a subset of these outputs for two locations (Massachusetts, FIPS code `"25"`, and Texas, FIPS code `"48"`) and two reference dates (2022-11-19 and 2022-12-17).  Additionally, for the quantile forecasts we have subset to seven quantile levels: 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, and 0.95.
 
-The task id variables used and values of those variables are specific to each modeling hub. For example, a hub collecting predictions for locations other than US states would use a different location identifier than FIPS codes, and a hub might introduce additional task id variables such as an identifier of age group or disease variant depending on the goals of the hub. See the hubverse documentation for further information about [task id variables](https://hubverse.io/en/latest/user-guide/tasks.html#task-id-variables).
+The task id variables used and values of those variables are specific to each modeling hub. For example, a hub collecting predictions for locations other than US states would use a different location identifier than FIPS codes, and a hub might introduce additional task id variables such as an identifier of age group or disease variant depending on the goals of the hub. See the hubverse documentation for further information about [task id variables](https://docs.hubverse.io/en/latest/user-guide/tasks.html#task-id-variables).
 
 ## Example forecast target data
 
@@ -70,7 +70,7 @@ head(forecast_target_ts)
 tail(forecast_target_ts)
 ```
 
-See the hubverse documentation for further information about [time series target data](https://hubverse.io/en/latest/user-guide/target-data.html#time-series).
+See the hubverse documentation for further information about [time series target data](https://docs.hubverse.io/en/latest/user-guide/target-data.html#time-series).
 
 ## Example forecast oracle output
 
@@ -80,7 +80,7 @@ The `forecast_oracle_output` data is derived from the `forecast_target_ts` data,
 head(forecast_oracle_output)
 ```
 
-This data frame has a subset of the columns in the `forecast_outputs` that is sufficient to identify the observed value corresponding to each prediction, including the `location`, `target_end_date`, `target`, `output_type`, and `output_type_id`, along with the predictions from the oracle model, recorded in the `oracle_value` column. Note that the `reference_date` and `horizon` columns are not needed in this data frame, since the `target_end_date` is sufficient to align observations with predictions. See the hubverse documentation for further information about [oracle output data](https://hubverse.io/en/latest/user-guide/target-data.html#oracle-output).
+This data frame has a subset of the columns in the `forecast_outputs` that is sufficient to identify the observed value corresponding to each prediction, including the `location`, `target_end_date`, `target`, `output_type`, and `output_type_id`, along with the predictions from the oracle model, recorded in the `oracle_value` column. Note that the `reference_date` and `horizon` columns are not needed in this data frame, since the `target_end_date` is sufficient to align observations with predictions. See the hubverse documentation for further information about [oracle output data](https://docs.hubverse.io/en/latest/user-guide/target-data.html#oracle-output).
 
 # Further detail on the forecast targets
 
