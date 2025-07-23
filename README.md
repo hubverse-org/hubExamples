@@ -136,5 +136,5 @@ project, you agree to abide by its terms.
 
 Interested in contributing back to the open-source Hubverse project?
 Learn more about how to [get involved in the Hubverse
-Community](https://docs.hubverse.io/en/latest/overview/contribute.html) or
+Community](https://hubverse.io/community/) or
 [how to contribute to the hubExamples package](.github/CONTRIBUTING.md).
