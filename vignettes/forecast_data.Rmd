@@ -57,11 +57,11 @@ This is a data frame with four groups of columns (see the [hubverse documentatio
     - The `output_type_id` gives additional identifying information about the predictions; the information in this column is specific to the `output_type`.
 4. The `value` column contains the value of the model's prediction.
 
-The original hub submissions contained predictions for many locations and dates, and quantile forecasts were provided at 23 different quantile levels ranging from 0.01 to 0.99.  To make the example data more manageable, the `forecast_outputs` object contains a subset of these outputs for two locations (Massachusetts, FIPS code `"25"`, and Texas, FIPS code `"48"`) and two reference dates (2022-11-19 and 2022-12-17).  Additionally, for the quantile forecasts we have subset to seven quantile levels: 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, and 0.95.
+The original hub submissions contained predictions for many locations and dates, and quantile forecasts were provided at 23 different quantile levels ranging from 0.01 to 0.99. To make the example data more manageable, the `forecast_outputs` object contains a subset of these outputs for two locations (Massachusetts, FIPS code `"25"`, and Texas, FIPS code `"48"`) and two reference dates (2022-11-19 and 2022-12-17). Additionally, for the quantile forecasts we have subset to seven quantile levels: 0.05, 0.1, 0.25, 0.5, 0.75, 0.9, and 0.95.
 
 The task id variables used and values of those variables are specific to each modeling hub. For example, a hub collecting predictions for locations other than US states would use a different location identifier than FIPS codes, and a hub might introduce additional task id variables such as an identifier of age group or disease variant depending on the goals of the hub. See the hubverse documentation for further information about [task id variables](https://docs.hubverse.io/en/latest/user-guide/tasks.html#task-id-variables).
 
-## Example forecast target data
+## Example forecast target time series data
 
 All predictions are for targets that are based on influenza hospital admissions as reported in the US National Healthcare Safety Network (NHSN). The `forecast_target_ts` object contains the observed values of these hospital admissions in a time series format:
 
@@ -105,9 +105,11 @@ plot_step_ahead_model_output(
     filter(output_type %in% c("quantile", "median")),
   target_data = forecast_target_ts |>
     filter(location %in% c("25", "48"),
-           date >= "2022-10-01", date <= "2023-04-01"),
+           target_end_date >= "2022-10-01", target_end_date <= "2023-04-01",
+           target == "wk inc flu hosp"),
   use_median_as_point = TRUE,
   x_col_name = "target_end_date",
+  x_target_col_name = "target_end_date",
   intervals = c(0.5, 0.8, 0.9),
   facet = "location",
   group = "reference_date",
@@ -122,8 +124,9 @@ ggplot() +
   geom_line(
     data = forecast_target_ts |>
       filter(location == "25",
-             date >= "2022-10-01", date <= "2023-04-01"),
-    mapping = aes(x = date, y = observation)
+             target_end_date >= "2022-10-01", target_end_date <= "2023-04-01",
+             target == "wk inc flu hosp"),
+    mapping = aes(x = target_end_date, y = observation)
   ) +
   geom_line(
     data = forecast_outputs |>
@@ -159,6 +162,7 @@ For this target, we created cumulative distribution function (CDF) predictions w
 forecast_outputs |>
   filter(target == "wk flu hosp rate") |>
   select(-model_id, -reference_date, -horizon) |>
+  arrange(location, target_end_date) |>
   head()
 ```
 
@@ -232,14 +236,15 @@ population_values <- data.frame(
 # compute observed hospital admission rates for the 2022/23 season
 observed_rates <- forecast_target_ts |>
   filter(location %in% c("25", "48"),
-         date >= "2022-10-01", date <= "2023-04-01") |>
+         target_end_date >= "2022-10-01", target_end_date <= "2023-04-01",
+         target == "wk inc flu hosp") |>
   left_join(population_values) |>
   mutate(rate = observation / population_100k)
 
 # plot along with intensity thresholds
 ggplot() +
   geom_line(
-    mapping = aes(x = date, y = rate),
+    mapping = aes(x = target_end_date, y = rate),
     data = observed_rates
   ) +
   geom_hline(
