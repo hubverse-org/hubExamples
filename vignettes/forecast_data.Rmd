@@ -40,7 +40,7 @@ The example forecasts provided in `forecast_outputs` are derived from forecasts 
 The snippet below shows the format of the `forecast_outputs` (note: here and throughout the document, you may need to scroll to the right within displays of code output to see all data frame columns).
 
 ```{r}
-head(forecast_outputs)
+forecast_outputs
 ```
 
 This is a data frame with four groups of columns (see the [hubverse documentation](https://docs.hubverse.io/en/latest/user-guide/model-output.html) for more information about these data formats):
