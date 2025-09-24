@@ -187,7 +187,7 @@ about <a href="https://docs.hubverse.io/en/latest/user-guide/tasks.html#task-id-
 id variables</a>.</p>
 </div>
 <div class="section level3">
-<h3 id="example-forecast-target-data">Example forecast target data<a class="anchor" aria-label="anchor" href="#example-forecast-target-data"></a>
+<h3 id="example-forecast-target-time-series-data">Example forecast target time series data<a class="anchor" aria-label="anchor" href="#example-forecast-target-time-series-data"></a>
 </h3>
 <p>All predictions are for targets that are based on influenza hospital
 admissions as reported in the US National Healthcare Safety Network
@@ -195,25 +195,25 @@ admissions as reported in the US National Healthcare Safety Network
 values of these hospital admissions in a time series format:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">forecast_target_ts</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 3</span></span></span>
-<span><span class="co">#&gt;   date       location observation</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 2020-01-11 01                 0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 2020-01-11 15                 0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 2020-01-11 18                 0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 2020-01-11 27                 0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 2020-01-11 30                 0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 2020-01-11 37                 0</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 4</span></span></span>
+<span><span class="co">#&gt;   target_end_date target          location observation</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>           <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 2020-01-11      wk inc flu hosp 01                 0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 2020-01-11      wk inc flu hosp 15                 0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 2020-01-11      wk inc flu hosp 18                 0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 2020-01-11      wk inc flu hosp 27                 0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 2020-01-11      wk inc flu hosp 30                 0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 2020-01-11      wk inc flu hosp 37                 0</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">tail</a></span><span class="op">(</span><span class="va">forecast_target_ts</span><span class="op">)</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 3</span></span></span>
-<span><span class="co">#&gt;   date       location observation</span></span>
-<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>     <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 2023-11-11 51                88</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 2023-11-11 50                 3</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 2023-11-11 53                20</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 2023-11-11 55                19</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 2023-11-11 54                12</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 2023-11-11 56                 7</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 4</span></span></span>
+<span><span class="co">#&gt;   target_end_date target           location observation</span></span>
+<span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>            <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>          <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 2023-11-11      wk flu hosp rate 51             1.03 </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 2023-11-11      wk flu hosp rate 50             0.464</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 2023-11-11      wk flu hosp rate 53             0.259</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 2023-11-11      wk flu hosp rate 55             0.323</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 2023-11-11      wk flu hosp rate 54             0.676</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 2023-11-11      wk flu hosp rate 56             1.21</span></span></code></pre></div>
 <p>See the hubverse documentation for further information about <a href="https://docs.hubverse.io/en/latest/user-guide/target-data.html#time-series" class="external-link">time
 series target data</a>.</p>
 </div>
@@ -296,9 +296,11 @@ Texas.</p>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">output_type</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"quantile"</span>, <span class="st">"median"</span><span class="op">)</span><span class="op">)</span>,</span>
 <span>  target_data <span class="op">=</span> <span class="va">forecast_target_ts</span> <span class="op">|&gt;</span></span>
 <span>    <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">location</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"25"</span>, <span class="st">"48"</span><span class="op">)</span>,</span>
-<span>           <span class="va">date</span> <span class="op">&gt;=</span> <span class="st">"2022-10-01"</span>, <span class="va">date</span> <span class="op">&lt;=</span> <span class="st">"2023-04-01"</span><span class="op">)</span>,</span>
+<span>           <span class="va">target_end_date</span> <span class="op">&gt;=</span> <span class="st">"2022-10-01"</span>, <span class="va">target_end_date</span> <span class="op">&lt;=</span> <span class="st">"2023-04-01"</span>,</span>
+<span>           <span class="va">target</span> <span class="op">==</span> <span class="st">"wk inc flu hosp"</span><span class="op">)</span>,</span>
 <span>  use_median_as_point <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  x_col_name <span class="op">=</span> <span class="st">"target_end_date"</span>,</span>
+<span>  x_target_col_name <span class="op">=</span> <span class="st">"target_end_date"</span>,</span>
 <span>  intervals <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.5</span>, <span class="fl">0.8</span>, <span class="fl">0.9</span><span class="op">)</span>,</span>
 <span>  facet <span class="op">=</span> <span class="st">"location"</span>,</span>
 <span>  group <span class="op">=</span> <span class="st">"reference_date"</span>,</span>
@@ -314,8 +316,9 @@ generated by the “MOBS-GLEAM_FLUH” model.</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span></span>
 <span>    data <span class="op">=</span> <span class="va">forecast_target_ts</span> <span class="op">|&gt;</span></span>
 <span>      <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">location</span> <span class="op">==</span> <span class="st">"25"</span>,</span>
-<span>             <span class="va">date</span> <span class="op">&gt;=</span> <span class="st">"2022-10-01"</span>, <span class="va">date</span> <span class="op">&lt;=</span> <span class="st">"2023-04-01"</span><span class="op">)</span>,</span>
-<span>    mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">date</span>, y <span class="op">=</span> <span class="va">observation</span><span class="op">)</span></span>
+<span>             <span class="va">target_end_date</span> <span class="op">&gt;=</span> <span class="st">"2022-10-01"</span>, <span class="va">target_end_date</span> <span class="op">&lt;=</span> <span class="st">"2023-04-01"</span>,</span>
+<span>             <span class="va">target</span> <span class="op">==</span> <span class="st">"wk inc flu hosp"</span><span class="op">)</span>,</span>
+<span>    mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">target_end_date</span>, y <span class="op">=</span> <span class="va">observation</span><span class="op">)</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span></span>
 <span>    data <span class="op">=</span> <span class="va">forecast_outputs</span> <span class="op">|&gt;</span></span>
@@ -377,6 +380,7 @@ to 25 in increments of 0.25 hospitalizations per 100,000 population:</p>
 <code class="sourceCode R"><span><span class="va">forecast_outputs</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">target</span> <span class="op">==</span> <span class="st">"wk flu hosp rate"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html" class="external-link">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">model_id</span>, <span class="op">-</span><span class="va">reference_date</span>, <span class="op">-</span><span class="va">horizon</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/arrange.html" class="external-link">arrange</a></span><span class="op">(</span><span class="va">location</span>, <span class="va">target_end_date</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 6 × 6</span></span></span>
 <span><span class="co">#&gt;   target           location target_end_date output_type output_type_id  value</span></span>
@@ -513,7 +517,8 @@ of the intensity categories denoted with horizontal lines:</p>
 <span><span class="co"># compute observed hospital admission rates for the 2022/23 season</span></span>
 <span><span class="va">observed_rates</span> <span class="op">&lt;-</span> <span class="va">forecast_target_ts</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">location</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"25"</span>, <span class="st">"48"</span><span class="op">)</span>,</span>
-<span>         <span class="va">date</span> <span class="op">&gt;=</span> <span class="st">"2022-10-01"</span>, <span class="va">date</span> <span class="op">&lt;=</span> <span class="st">"2023-04-01"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>         <span class="va">target_end_date</span> <span class="op">&gt;=</span> <span class="st">"2022-10-01"</span>, <span class="va">target_end_date</span> <span class="op">&lt;=</span> <span class="st">"2023-04-01"</span>,</span>
+<span>         <span class="va">target</span> <span class="op">==</span> <span class="st">"wk inc flu hosp"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html" class="external-link">left_join</a></span><span class="op">(</span><span class="va">population_values</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/mutate.html" class="external-link">mutate</a></span><span class="op">(</span>rate <span class="op">=</span> <span class="va">observation</span> <span class="op">/</span> <span class="va">population_100k</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Joining with `by = join_by(location)`</span></span>
@@ -521,7 +526,7 @@ of the intensity categories denoted with horizontal lines:</p>
 <span><span class="co"># plot along with intensity thresholds</span></span>
 <span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span></span>
-<span>    mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">date</span>, y <span class="op">=</span> <span class="va">rate</span><span class="op">)</span>,</span>
+<span>    mapping <span class="op">=</span> <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span>x <span class="op">=</span> <span class="va">target_end_date</span>, y <span class="op">=</span> <span class="va">rate</span><span class="op">)</span>,</span>
 <span>    data <span class="op">=</span> <span class="va">observed_rates</span></span>
 <span>  <span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_abline.html" class="external-link">geom_hline</a></span><span class="op">(</span></span>
