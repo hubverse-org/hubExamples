@@ -46,7 +46,8 @@ NULL
 #' A data frame with `r format(nrow(hubExamples::forecast_target_ts), big.mark = ",")` rows and
 #' `r ncol(hubExamples::forecast_target_ts)` columns:
 #' \describe{
-#'   \item{date}{the date of the target observation in yyyy-mm-dd format}
+#'   \item{target_end_date}{the date of the target observation in yyyy-mm-dd format}
+#'   \item{target}{a unique identifier for the target}
 #'   \item{location}{FIPS code identifying a location}
 #'   \item{observation}{a count of hospital admissions in the given `location`
 #'        in the week ending on the given `date`.}
