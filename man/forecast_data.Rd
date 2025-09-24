@@ -32,10 +32,11 @@ hubs will not expect \code{output_type_id} values when the \code{output_type} is
 
 \subsection{\code{forecast_target_ts}}{
 
-A data frame with 10,255 rows and
-3 columns:
+A data frame with 20,510 rows and
+4 columns:
 \describe{
-\item{date}{the date of the target observation in yyyy-mm-dd format}
+\item{target_end_date}{the date of the target observation in yyyy-mm-dd format}
+\item{target}{a unique identifier for the target}
 \item{location}{FIPS code identifying a location}
 \item{observation}{a count of hospital admissions in the given \code{location}
 in the week ending on the given \code{date}.}
