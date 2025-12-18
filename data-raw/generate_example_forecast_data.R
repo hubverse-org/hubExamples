@@ -7,7 +7,11 @@ library(readr)
 
 s3_bucket_name <- "example-complex-forecast-hub"
 check_bucket <- bucket_exists(s3_bucket_name)
-if (isFALSE(check_bucket)) {{ stop("Aborting: ", s3_bucket_name, " S3 bucket not found") }}
+if (isFALSE(check_bucket)) {
+  {
+    stop("Aborting: ", s3_bucket_name, " S3 bucket not found")
+  }
+}
 
 hub_path <- s3_bucket(s3_bucket_name)
 
@@ -19,7 +23,8 @@ create_forecast_outputs <- function() {
     dplyr::filter(
       .data[["location"]] %in% l_keep,
       .data[["output_type"]] != "quantile" |
-        (.data[["output_type"]] == "quantile" & .data[["output_type_id"]] %in% q_lvls_keep),
+        (.data[["output_type"]] == "quantile" &
+          .data[["output_type_id"]] %in% q_lvls_keep),
       .data[["reference_date"]] %in% d_keep
     ) |>
     hubData::collect_hub()
@@ -34,7 +39,11 @@ create_forecast_target_ts <- function() {
 }
 
 create_forecast_oracle_output <- function() {
-  target_oracle_output_data_path <- paste("target-data", "oracle-output.csv", sep = "/")
+  target_oracle_output_data_path <- paste(
+    "target-data",
+    "oracle-output.csv",
+    sep = "/"
+  )
   readr::read_csv(
     aws.s3::get_object(target_oracle_output_data_path, bucket = s3_bucket_name),
     show_col_types = FALSE

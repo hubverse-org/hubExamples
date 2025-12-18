@@ -16,3 +16,5 @@
 ^pkgdown$
 ^data-raw$
 ^\.pre-commit-config.yaml$
+^[.]?air[.]toml$
+^\.vscode$
