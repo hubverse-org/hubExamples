@@ -14,7 +14,12 @@ Authors@R: c(
            family = "Contamin",
            email = "contamin@pitt.edu",
            role = c("aut"),
-           comment = c(ORCID = "0000-0001-5797-1279")))
+           comment = c(ORCID = "0000-0001-5797-1279")),
+    person(given = "Li",
+           family = "Shandross",
+           email = "lshandross@umass.edu",
+           comment = c(ORCID = "0009-0008-1348-1954"),
+           role = c("ctb")))
 Description: This package provides example data for forecasting and scenario
     modeling hubs in the hubverse format.
 License: MIT + file LICENSE
