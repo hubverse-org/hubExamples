@@ -8,9 +8,7 @@ library(readr)
 s3_bucket_name <- "example-complex-forecast-hub"
 check_bucket <- bucket_exists(s3_bucket_name)
 if (isFALSE(check_bucket)) {
-  {
-    stop("Aborting: ", s3_bucket_name, " S3 bucket not found")
-  }
+  stop("Aborting: ", s3_bucket_name, " S3 bucket not found")
 }
 
 hub_path <- s3_bucket(s3_bucket_name)
