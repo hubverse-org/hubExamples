@@ -1,3 +1,5 @@
+# hubExamples (development version)
+
 # hubExamples 1.0.0
 
 * Depend on R version 3.5 or greater
