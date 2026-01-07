@@ -1,4 +1,9 @@
-# hubExamples (development version)
+# hubExamples 1.0.0
+
+* Depend on R version 3.5 or greater
+* Update `forecast_target_ts` data object to conform to new hubverse target time series standards
+* Update vignette to use new hubverse target data standards
+* Update organisation name to hubverse-org
 
 # hubExamples 0.1.0
 

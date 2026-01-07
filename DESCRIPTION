@@ -1,6 +1,6 @@
 Package: hubExamples
 Title: Example Hub Data
-Version: 0.1.0.9000
+Version: 1.0.0
 Authors@R: c(
     person(given = "Evan L",
            family = "Ray",
@@ -14,7 +14,12 @@ Authors@R: c(
            family = "Contamin",
            email = "contamin@pitt.edu",
            role = c("aut"),
-           comment = c(ORCID = "0000-0001-5797-1279")))
+           comment = c(ORCID = "0000-0001-5797-1279")),
+    person(given = "Li",
+           family = "Shandross",
+           email = "lshandross@umass.edu",
+           comment = c(ORCID = "0009-0008-1348-1954"),
+           role = c("ctb")))
 Description: This package provides example data for forecasting and scenario
     modeling hubs in the hubverse format.
 License: MIT + file LICENSE
@@ -22,13 +27,17 @@ Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 Suggests:
+    aws.s3,
     dplyr,
     ggplot2,
+    hubData,
     hubVis (>= 0.1.0),
     knitr,
+    readr,
     rmarkdown,
     testthat (>= 3.0.0)
 Remotes:
+    hubverse-org/hubData,
     hubverse-org/hubVis
 Config/testthat/edition: 3
 URL: https://github.com/hubverse-org/hubExamples

@@ -23,12 +23,12 @@ test_that("forecast_outputs dataset is generated correctly", {
   )
 
   load(test_path("testdata", "forecast_outputs.rda"))
-  expected_forecast_outputs <- forecast_outputs %>%
-    arrange_at(cols) %>%
+  expected_forecast_outputs <- forecast_outputs |>
+    arrange_at(cols) |>
     select(all_of(cols))
 
-  actual_forecast_outputs <- create_forecast_outputs() %>%
-    arrange_at(cols) %>%
+  actual_forecast_outputs <- create_forecast_outputs() |>
+    arrange_at(cols) |>
     select(all_of(cols))
 
   expect_equal(
@@ -49,12 +49,12 @@ test_that("forecast_oracle_output dataset is generated correctly", {
   )
 
   load(test_path("testdata", "forecast_oracle_output.rda"))
-  expected_forecast_oracle_output <- forecast_oracle_output %>%
-    arrange_at(cols) %>%
+  expected_forecast_oracle_output <- forecast_oracle_output |>
+    arrange_at(cols) |>
     select(all_of(cols))
 
-  actual_forecast_oracle_output <- create_forecast_oracle_output() %>%
-    arrange_at(cols) %>%
+  actual_forecast_oracle_output <- create_forecast_oracle_output() |>
+    arrange_at(cols) |>
     select(all_of(cols))
 
   expect_equal(
@@ -68,12 +68,12 @@ test_that("forecast_target_ts dataset is generated correctly", {
   cols <- c("date", "location", "observation")
 
   load(test_path("testdata", "forecast_target_ts.rda"))
-  expected_forecast_target_ts <- forecast_target_ts %>%
-    arrange_at(cols) %>%
+  expected_forecast_target_ts <- forecast_target_ts |>
+    arrange_at(cols) |>
     select(all_of(cols))
 
-  actual_forecast_target_ts <- create_forecast_target_ts() %>%
-    arrange_at(cols) %>%
+  actual_forecast_target_ts <- create_forecast_target_ts() |>
+    arrange_at(cols) |>
     select(all_of(cols))
 
   expect_equal(
