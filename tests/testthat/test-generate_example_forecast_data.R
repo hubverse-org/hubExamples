@@ -11,8 +11,15 @@ source(file.path(forecast_data_path, "generate_example_forecast_data.R"))
 
 test_that("forecast_outputs dataset is generated correctly", {
   cols <- c(
-    "output_type", "reference_date", "horizon", "target_end_date",
-    "location", "model_id", "target", "output_type_id", "value"
+    "output_type",
+    "reference_date",
+    "horizon",
+    "target_end_date",
+    "location",
+    "model_id",
+    "target",
+    "output_type_id",
+    "value"
   )
 
   load(test_path("testdata", "forecast_outputs.rda"))
@@ -32,7 +39,14 @@ test_that("forecast_outputs dataset is generated correctly", {
 
 
 test_that("forecast_oracle_output dataset is generated correctly", {
-  cols <- c("location", "target_end_date", "target", "output_type", "output_type_id", "oracle_value")
+  cols <- c(
+    "location",
+    "target_end_date",
+    "target",
+    "output_type",
+    "output_type_id",
+    "oracle_value"
+  )
 
   load(test_path("testdata", "forecast_oracle_output.rda"))
   expected_forecast_oracle_output <- forecast_oracle_output %>%
