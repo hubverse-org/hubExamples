@@ -20,7 +20,8 @@ create_forecast_outputs <- function() {
     dplyr::filter(
       .data[["location"]] %in% l_keep,
       .data[["output_type"]] != "quantile" |
-        (.data[["output_type"]] == "quantile" & .data[["output_type_id"]] %in% q_lvls_keep),
+        (.data[["output_type"]] == "quantile" &
+           .data[["output_type_id"]] %in% q_lvls_keep),
       .data[["reference_date"]] %in% d_keep
     ) |>
     hubData::collect_hub()
