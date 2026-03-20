@@ -15,7 +15,8 @@ create_forecast_outputs <- function() {
   l_keep <- c("25", "48")
   q_lvls_keep <- c("0.05", "0.1", "0.25", "0.5", "0.75", "0.9", "0.95")
   d_keep <- c("2022-11-19", "2022-12-17")
-  hubData::connect_hub(hub_path, file_format = "parquet", skip_checks = TRUE) |>
+  hub_path |>
+    hubData::connect_hub(file_format = "parquet", skip_checks = TRUE) |>
     dplyr::filter(
       .data[["location"]] %in% l_keep,
       .data[["output_type"]] != "quantile" |
