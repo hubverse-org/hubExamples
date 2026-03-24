@@ -5,6 +5,11 @@ Authors@R: c(
     person(given = "Evan L",
            family = "Ray",
            email = "elray@umass.edu",
+           role = c("aut")),
+    person(given = "Li",
+           family = "Shandross",
+           email = "lshandross@umass.edu",
+           comment = c(ORCID = "0009-0008-1348-1954"),
            role = c("aut", "cre")),
     person(given = "Becky",
            family = "Sweger",
@@ -13,19 +18,14 @@ Authors@R: c(
     person(given = "Lucie",
            family = "Contamin",
            email = "contamin@pitt.edu",
-           role = c("aut"),
-           comment = c(ORCID = "0000-0001-5797-1279")),
-    person(given = "Li",
-           family = "Shandross",
-           email = "lshandross@umass.edu",
-           comment = c(ORCID = "0009-0008-1348-1954"),
-           role = c("ctb")))
+           comment = c(ORCID = "0000-0001-5797-1279"),
+           role = c("aut")))
 Description: This package provides example data for forecasting and scenario
     modeling hubs in the hubverse format.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.2
+RoxygenNote: 7.3.3
 Suggests:
     aws.s3,
     dplyr,
