@@ -1,5 +1,11 @@
 # Changelog
 
+## hubExamples 1.0.1
+
+- Fix `forecast_outputs` deserialising as length-zero columns on systems
+  without `arrow` installed
+  ([\#63](https://github.com/hubverse-org/hubExamples/issues/63)).
+
 ## hubExamples 1.0.0
 
 - Depend on R version 3.5 or greater
