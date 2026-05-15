@@ -17,7 +17,7 @@
 ## Citation
 
 Source:
-[`DESCRIPTION`](https://github.com/hubverse-org/hubExamples/blob/main/DESCRIPTION)
+[`DESCRIPTION`](https://github.com/hubverse-org/hubExamples/blob/v1.0.1/DESCRIPTION)
 
 Ray E, Shandross L, Sweger B, Contamin L (2026). *hubExamples: Example
 Hub Data*. R package version 1.0.1,
