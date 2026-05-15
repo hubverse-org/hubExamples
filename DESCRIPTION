@@ -1,6 +1,6 @@
 Package: hubExamples
 Title: Example Hub Data
-Version: 1.0.0.9000
+Version: 1.0.1
 Authors@R: c(
     person(given = "Evan L",
            family = "Ray",
@@ -19,7 +19,12 @@ Authors@R: c(
            family = "Contamin",
            email = "contamin@pitt.edu",
            comment = c(ORCID = "0000-0001-5797-1279"),
-           role = c("aut")))
+           role = c("aut")),
+    person(given = "Anna",
+           family = "Krystalli",
+           email = "annakrystalli@googlemail.com",
+           comment = c(ORCID = "0000-0002-2378-4915"),
+           role = c("ctb")))
 Description: This package provides example data for forecasting and scenario
     modeling hubs in the hubverse format.
 License: MIT + file LICENSE
