@@ -37,7 +37,8 @@
 
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="development version" id="hubexamples-development-version">hubExamples (development version)<a class="anchor" aria-label="anchor" href="#hubexamples-development-version"></a></h2>
-</div>
+<ul><li>Regenerate <code>forecast_outputs</code> without arrow ALTREP-backed columns so the <code>.rda</code> deserialises correctly on systems where <code>arrow</code> is not installed (<a href="https://github.com/hubverse-org/hubExamples/issues/63" class="external-link">#63</a>). The <code>data-raw</code> scripts now set <code>options(arrow.use_altrep = FALSE)</code> so future regenerations stay portable.</li>
+</ul></div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="1.0.0" id="hubexamples-100">hubExamples 1.0.0<a class="anchor" aria-label="anchor" href="#hubexamples-100"></a></h2>
 <ul><li>Depend on R version 3.5 or greater</li>
