@@ -1,5 +1,7 @@
 # hubExamples (development version)
 
+* Regenerate `forecast_outputs` without arrow ALTREP-backed columns so the `.rda` deserialises correctly on systems where `arrow` is not installed (#63). The `data-raw` scripts now set `options(arrow.use_altrep = FALSE)` so future regenerations stay portable.
+
 # hubExamples 1.0.0
 
 * Depend on R version 3.5 or greater

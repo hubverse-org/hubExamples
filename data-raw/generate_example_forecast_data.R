@@ -5,6 +5,11 @@ library(dplyr)
 library(hubData)
 library(readr)
 
+# Prevent arrow from returning ALTREP-backed columns, which serialise into
+# `.rda` files that deserialise as length-zero vectors on systems where
+# `arrow` is not installed (see hubverse-org/hubExamples#63).
+options(arrow.use_altrep = FALSE)
+
 s3_bucket_name <- "example-complex-forecast-hub"
 check_bucket <- bucket_exists(s3_bucket_name)
 if (isFALSE(check_bucket)) {

@@ -5,6 +5,11 @@ library(hubData)
 library(dplyr)
 library(hubEnsembles)
 
+# Prevent arrow from returning ALTREP-backed columns, which serialise into
+# `.rda` files that deserialise as length-zero vectors on systems where
+# `arrow` is not installed (see hubverse-org/hubExamples#63).
+options(arrow.use_altrep = FALSE)
+
 # Generate Data
 hub_path <- "../example-complex-scenario-hub/"
 
