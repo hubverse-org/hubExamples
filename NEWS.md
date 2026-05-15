@@ -1,3 +1,5 @@
+# hubExamples (development version)
+
 # hubExamples 1.0.1
 
 * Fix `forecast_outputs` deserialising as length-zero columns on systems without `arrow` installed (#63).
