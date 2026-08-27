@@ -15,6 +15,7 @@ You can install the [latest version of hubExamples from the
 R-universe](https://hubverse-org.r-universe.dev/hubExamples):
 
 ``` r
+
 install.packages("hubExamples", repos = c("https://hubverse-org.r-universe.dev", "https://cloud.r-project.org"))
 ```
 
@@ -25,6 +26,7 @@ you can install the development version of hubExamples from
 [GitHub](https://github.com/) with:
 
 ``` r
+
 # install.packages("remotes")
 remotes::install_github("hubverse-org/hubExamples")
 ```
@@ -37,6 +39,7 @@ and target data for an example forecast hub: `forecast_outputs`,
 package documentation for further information about these data objects.
 
 ``` r
+
 library(hubExamples)
 head(forecast_outputs)
 #>            model_id reference_date          target horizon location
@@ -86,6 +89,7 @@ target data for an example scenario hub: `scenario_outputs` and
 information about these data objects.
 
 ``` r
+
 head(scenario_outputs)
 #>          model_id origin_date  scenario_id location   target horizon
 #> 1 HUBuni-simexamp  2021-03-07 A-2021-03-05       US inc case       1
